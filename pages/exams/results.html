@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - SmartERP</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="../student-dashboard.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="hall-ticket.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-id-card"></i>
+                        Hall Ticket
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="register.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-clipboard-list"></i>
+                        Exam Registration
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="results.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-chart-line"></i>
+                        Results
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">Examination Results</h1>
+                        <nav class="breadcrumb">
+                            <a href="../student-dashboard.html">Dashboard</a>
+                            <span>/</span>
+                            <span>Results</span>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-menu-toggle">
+                            <img src="../../assets/images/student-avatar.jpg" alt="Student" class="user-avatar-small" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4YjVjZjYiLz48L3N2Zz4='">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <div class="user-menu-header">
+                                <div class="user-name">John Smith</div>
+                                <div class="user-email">john.smith@student.college.edu</div>
+                            </div>
+                            <div class="user-menu-items">
+                                <a href="#" class="user-menu-item logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Academic Performance Overview -->
+            <div class="performance-overview">
+                <div class="overview-cards">
+                    <div class="overview-card cgpa">
+                        <div class="card-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Current CGPA</h3>
+                            <div class="cgpa-value">8.67</div>
+                            <p class="cgpa-grade">First Class with Distinction</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card sgpa">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Current SGPA</h3>
+                            <div class="sgpa-value">8.85</div>
+                            <p class="semester-info">Semester 1 (2024)</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card rank">
+                        <div class="card-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Class Rank</h3>
+                            <div class="rank-value">5<span>/120</span></div>
+                            <p class="rank-info">Top 5% of class</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card credits">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Credits Earned</h3>
+                            <div class="credits-value">24<span>/180</span></div>
+                            <p class="credits-info">13% Completed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semester Selection -->
+            <div class="card mb-6">
+                <div class="card-header">
+                    <h3 class="card-title">Select Semester</h3>
+                    <div class="semester-filter">
+                        <select class="form-select" id="semesterFilter" onchange="loadSemesterResults()">
+                            <option value="current">Current Semester (1st Sem 2024)</option>
+                            <option value="all">All Semesters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="semester-tabs">
+                        <button class="semester-tab active" onclick="showSemester('sem1')" data-semester="sem1">
+                            Semester 1
+                            <span class="tab-sgpa">SGPA: 8.85</span>
+                        </button>
+                        <button class="semester-tab disabled" onclick="showSemester('sem2')" data-semester="sem2">
+                            Semester 2
+                            <span class="tab-sgpa">Upcoming</span>
+                        </button>
+                        <button class="semester-tab disabled" onclick="showSemester('sem3')" data-semester="sem3">
+                            Semester 3
+                            <span class="tab-sgpa">Upcoming</span>
+                        </button>
+                        <button class="semester-tab disabled" onclick="showSemester('sem4')" data-semester="sem4">
+                            Semester 4
+                            <span class="tab-sgpa">Upcoming</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Display -->
+            <div class="results-container">
+                <!-- Semester 1 Results -->
+                <div class="semester-results active" id="sem1-results">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Semester 1 Results - Winter 2024</h3>
+                            <div class="result-actions">
+                                <button class="btn btn-outline btn-sm" onclick="downloadResult('sem1')">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn btn-outline btn-sm" onclick="printResult('sem1')">
+                                    <i class="fas fa-print"></i>
+                                    Print
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="result-summary">
+                                <div class="summary-item">
+                                    <span class="summary-label">Total Subjects:</span>
+                                    <span class="summary-value">6</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Passed:</span>
+                                    <span class="summary-value success">6</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Failed:</span>
+                                    <span class="summary-value">0</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">SGPA:</span>
+                                    <span class="summary-value primary">8.85</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Credits:</span>
+                                    <span class="summary-value">24</span>
+                                </div>
+                            </div>
+
+                            <div class="subjects-results">
+                                <table class="results-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject Code</th>
+                                            <th>Subject Name</th>
+                                            <th>Credits</th>
+                                            <th>Internal Marks</th>
+                                            <th>External Marks</th>
+                                            <th>Total Marks</th>
+                                            <th>Grade</th>
+                                            <th>Grade Points</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="result-row">
+                                            <td class="subject-code">CS101</td>
+                                            <td class="subject-name">Programming Fundamentals</td>
+                                            <td class="credits">4</td>
+                                            <td class="internal-marks">38/40</td>
+                                            <td class="external-marks">55/60</td>
+                                            <td class="total-marks">93/100</td>
+                                            <td class="grade grade-a">A+</td>
+                                            <td class="grade-points">10</td>
+                                            <td class="status passed">
+                                                <span class="status-badge success">Pass</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="result-row">
+                                            <td class="subject-code">MA101</td>
+                                            <td class="subject-name">Engineering Mathematics I</td>
+                                            <td class="credits">4</td>
+                                            <td class="internal-marks">35/40</td>
+                                            <td class="external-marks">48/60</td>
+                                            <td class="total-marks">83/100</td>
+                                            <td class="grade grade-a">A</td>
+                                            <td class="grade-points">9</td>
+                                            <td class="status passed">
+                                                <span class="status-badge success">Pass</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="result-row">
+                                            <td class="subject-code">PH101</td>
+                                            <td class="subject-name">Engineering Physics I</td>
+                                            <td class="credits">3</td>
+                                            <td class="internal-marks">36/40</td>
+                                            <td class="external-marks">52/60</td>
+                                            <td class="total-marks">88/100</td>
+                                            <td class="grade grade-a">A</td>
+                                            <td class="grade-points">9</td>
+                                            <td class="status passed">
+                                                <span class="status-badge success">Pass</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="result-row">
+                                            <td class="subject-code">CH101</td>
+                                            <td class="subject-name">Engineering Chemistry</td>
+                                            <td class="credits">3</td>
+                                            <td class="internal-marks">33/40</td>
+                                            <td class="external-marks">45/60</td>
+                                            <td class="total-marks">78/100</td>
+                                            <td class="grade grade-b">B+</td>
+                                            <td class="grade-points">8</td>
+                                            <td class="status passed">
+                                                <span class="status-badge success">Pass</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="result-row">
+                                            <td class="subject-code">EG101</td>
+                                            <td class="subject-name">Engineering Graphics</td>
+                                            <td class="credits">3</td>
+                                            <td class="internal-marks">37/40</td>
+                                            <td class="external-marks">53/60</td>
+                                            <td class="total-marks">90/100</td>
+                                            <td class="grade grade-a">A+</td>
+                                            <td class="grade-points">10</td>
+                                            <td class="status passed">
+                                                <span class="status-badge success">Pass</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="result-row">
+                                            <td class="subject-code">EN101</td>
+                                            <td class="subject-name">English Communication</td>
+                                            <td class="credits">2</td>
+                                            <td class="internal-marks">35/40</td>
+                                            <td class="external-marks">50/60</td>
+                                            <td class="total-marks">85/100</td>
+                                            <td class="grade grade-a">A</td>
+                                            <td class="grade-points">9</td>
+                                            <td class="status passed">
+                                                <span class="status-badge success">Pass</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="result-analysis">
+                                <div class="analysis-charts">
+                                    <div class="chart-container">
+                                        <h4>Grade Distribution</h4>
+                                        <canvas id="gradeChart" width="300" height="200"></canvas>
+                                    </div>
+                                    <div class="chart-container">
+                                        <h4>Subject Performance</h4>
+                                        <canvas id="performanceChart" width="300" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Semesters -->
+                <div class="semester-results" id="sem2-results">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="upcoming-semester">
+                                <i class="fas fa-clock fa-3x text-secondary mb-4"></i>
+                                <h3>Semester 2 Results</h3>
+                                <p>Results will be available after the examination is completed.</p>
+                                <p class="text-secondary">Expected Date: June 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Progress -->
+            <div class="card mt-6">
+                <div class="card-header">
+                    <h3 class="card-title">Academic Progress</h3>
+                    <div class="progress-info">
+                        <span class="progress-text">Overall Progress: 13.3%</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="progress-timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Semester 1</h4>
+                                <p>SGPA: 8.85 • Credits: 24</p>
+                                <span class="timeline-date">Completed - Jan 2025</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active">
+                            <div class="timeline-marker">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Semester 2</h4>
+                                <p>Currently enrolled • Credits: 26</p>
+                                <span class="timeline-date">In Progress - Feb - Jun 2025</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item upcoming">
+                            <div class="timeline-marker">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Semester 3</h4>
+                                <p>Advanced subjects • Credits: 28</p>
+                                <span class="timeline-date">Upcoming - Jul 2025</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item upcoming">
+                            <div class="timeline-marker">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Semester 4</h4>
+                                <p>Core subjects • Credits: 30</p>
+                                <span class="timeline-date">Upcoming - Jan 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Actions -->
+            <div class="action-cards">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Additional Services</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-grid">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="fas fa-redo-alt"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Re-evaluation</h4>
+                                    <p>Apply for answer script re-evaluation</p>
+                                    <button class="btn btn-outline btn-sm" onclick="applyRevaluation()">
+                                        Apply Now
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Transcript</h4>
+                                    <p>Download official transcript</p>
+                                    <button class="btn btn-outline btn-sm" onclick="downloadTranscript()">
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Analytics</h4>
+                                    <p>Detailed performance analytics</p>
+                                    <button class="btn btn-outline btn-sm" onclick="viewAnalytics()">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Comparison</h4>
+                                    <p>Compare with class average</p>
+                                    <button class="btn btn-outline btn-sm" onclick="showComparison()">
+                                        Compare
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/storage.js"></script>
+    <script src="../../assets/js/fake-data.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            initializeCharts();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // User menu toggle
+            document.querySelector('.user-menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.user-menu-dropdown').classList.toggle('show');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown, .user-menu-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            });
+        }
+
+        // Show semester results
+        function showSemester(semesterId) {
+            // Update tab active state
+            document.querySelectorAll('.semester-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-semester="${semesterId}"]`).classList.add('active');
+
+            // Show corresponding results
+            document.querySelectorAll('.semester-results').forEach(result => {
+                result.classList.remove('active');
+            });
+            document.getElementById(`${semesterId}-results`).classList.add('active');
+        }
+
+        // Load semester results
+        function loadSemesterResults() {
+            const filter = document.getElementById('semesterFilter').value;
+            showNotification('Loading results for ' + filter, 'info');
+        }
+
+        // Initialize charts
+        function initializeCharts() {
+            // Grade Distribution Chart
+            const gradeCtx = document.getElementById('gradeChart').getContext('2d');
+            new Chart(gradeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['A+', 'A', 'B+', 'B', 'C'],
+                    datasets: [{
+                        data: [2, 3, 1, 0, 0],
+                        backgroundColor: [
+                            '#10b981',
+                            '#3b82f6',
+                            '#f59e0b',
+                            '#ef4444',
+                            '#6b7280'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Performance Chart
+            const perfCtx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(perfCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['CS101', 'MA101', 'PH101', 'CH101', 'EG101', 'EN101'],
+                    datasets: [{
+                        label: 'Marks Obtained',
+                        data: [93, 83, 88, 78, 90, 85],
+                        backgroundColor: '#6366f1',
+                        borderColor: '#4f46e5',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Download result
+        function downloadResult(semester) {
+            showNotification(`Downloading ${semester} results...`, 'info');
+            setTimeout(() => {
+                showNotification('Results downloaded successfully', 'success');
+            }, 2000);
+        }
+
+        // Print result
+        function printResult(semester) {
+            const printContent = document.getElementById(`${semester}-results`).innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <div style="padding: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="text-align: center; color: #6366f1;">ABC College of Engineering</h1>
+                    <h2 style="text-align: center;">Examination Results</h2>
+                    ${printContent}
+                </div>
+            `;
+            
+            window.print();
+            document.body.innerHTML = originalContent;
+            
+            // Reinitialize after content replacement
+            setupEventListeners();
+            initializeCharts();
+        }
+
+        // Apply for revaluation
+        function applyRevaluation() {
+            showNotification('Opening re-evaluation application form', 'info');
+        }
+
+        // Download transcript
+        function downloadTranscript() {
+            showNotification('Generating official transcript...', 'info');
+            setTimeout(() => {
+                showNotification('Transcript downloaded successfully', 'success');
+            }, 3000);
+        }
+
+        // View analytics
+        function viewAnalytics() {
+            showNotification('Opening detailed analytics', 'info');
+        }
+
+        // Show comparison
+        function showComparison() {
+            showNotification('Loading class comparison data', 'info');
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+    </script>
+
+    <style>
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .performance-overview {
+            margin-bottom: 2rem;
+        }
+
+        .overview-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .overview-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .overview-card.cgpa {
+            border-left-color: var(--success-color);
+        }
+
+        .overview-card.sgpa {
+            border-left-color: var(--primary-color);
+        }
+
+        .overview-card.rank {
+            border-left-color: var(--warning-color);
+        }
+
+        .overview-card.credits {
+            border-left-color: var(--info-color);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .cgpa .card-icon {
+            background: var(--success-color);
+        }
+
+        .sgpa .card-icon {
+            background: var(--primary-color);
+        }
+
+        .rank .card-icon {
+            background: var(--warning-color);
+        }
+
+        .credits .card-icon {
+            background: var(--info-color);
+        }
+
+        .card-content h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .cgpa-value,
+        .sgpa-value,
+        .rank-value,
+        .credits-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .rank-value span,
+        .credits-value span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .cgpa-grade,
+        .semester-info,
+        .rank-info,
+        .credits-info {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .semester-filter {
+            display: flex;
+            align-items: center;
+        }
+
+        .semester-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .semester-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 120px;
+        }
+
+        .semester-tab:hover:not(.disabled) {
+            border-color: var(--primary-color);
+            background: #f0f4ff;
+        }
+
+        .semester-tab.active {
+            border-color: var(--primary-color);
+            background: #f0f4ff;
+            color: var(--primary-color);
+        }
+
+        .semester-tab.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .tab-sgpa {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .semester-tab.active .tab-sgpa {
+            color: var(--primary-color);
+        }
+
+        .results-container {
+            margin-bottom: 2rem;
+        }
+
+        .semester-results {
+            display: none;
+        }
+
+        .semester-results.active {
+            display: block;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .result-summary {
+            display: flex;
+            justify-content: space-around;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .summary-value.success {
+            color: var(--success-color);
+        }
+
+        .summary-value.primary {
+            color: var(--primary-color);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .results-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .results-table td {
+            font-size: 0.875rem;
+        }
+
+        .subject-code {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .subject-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .grade {
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .grade-a {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .grade-b {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-badge.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .result-analysis {
+            margin-top: 2rem;
+        }
+
+        .analysis-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .chart-container {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            height: 300px;
+        }
+
+        .chart-container h4 {
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .upcoming-semester {
+            padding: 3rem 2rem;
+        }
+
+        .upcoming-semester i {
+            opacity: 0.5;
+        }
+
+        .upcoming-semester h3 {
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+        }
+
+        .upcoming-semester p {
+            margin: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .progress-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .progress-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #e2e8f0;
+        }
+
+        .timeline-item.completed:after {
+            background: var(--success-color);
+        }
+
+        .timeline-item.active:after {
+            background: linear-gradient(to bottom, var(--primary-color), #e2e8f0);
+        }
+
+        .timeline-marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        .timeline-item.completed .timeline-marker {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .timeline-item.active .timeline-marker {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .timeline-item.upcoming .timeline-marker {
+            background: #f1f5f9;
+            color: var(--text-secondary);
+            border: 2px solid #e2e8f0;
+        }
+
+        .timeline-content h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .action-cards {
+            margin-top: 2rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .service-info {
+            flex: 1;
+        }
+
+        .service-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .service-info p {
+            margin: 0 0 1rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notification-success {
+            background: var(--success-color);
+        }
+
+        .notification-error {
+            background: var(--danger-color);
+        }
+
+        .notification-info {
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .overview-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .result-summary {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .results-table {
+                font-size: 0.75rem;
+            }
+            
+            .results-table th,
+            .results-table td {
+                padding: 8px 4px;
+            }
+            
+            .analysis-charts {
+                grid-template-columns: 1fr;
+            }
+            
+            .semester-tabs {
+                flex-direction: column;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .result-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

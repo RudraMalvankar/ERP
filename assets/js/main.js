@@ -317,23 +317,37 @@ class ERPApp {
 
   // Toggle mobile menu
   toggleMobileMenu() {
+    // Handle sidebar (for dashboard pages)
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.querySelector('.sidebar-overlay');
     
     if (sidebar && overlay) {
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('active');
+      sidebar.classList.toggle('show');
+      overlay.classList.toggle('show');
+    }
+    
+    // Handle navbar mobile menu (for landing page)
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    if (mobileNavMenu) {
+      mobileNavMenu.classList.toggle('show');
     }
   }
 
   // Close mobile menu
   closeMobileMenu() {
+    // Handle sidebar (for dashboard pages)
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.querySelector('.sidebar-overlay');
     
     if (sidebar && overlay) {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('active');
+      sidebar.classList.remove('show');
+      overlay.classList.remove('show');
+    }
+    
+    // Handle navbar mobile menu (for landing page)
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    if (mobileNavMenu) {
+      mobileNavMenu.classList.remove('show');
     }
   }
 

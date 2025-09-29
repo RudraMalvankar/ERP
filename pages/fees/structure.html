@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Structure - SmartERP</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="../student-dashboard.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="structure.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-list-alt"></i>
+                        Fee Structure
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="pay.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-credit-card"></i>
+                        Pay Fees
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="history.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-history"></i>
+                        Payment History
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">Fee Structure</h1>
+                        <nav class="breadcrumb">
+                            <a href="../student-dashboard.html">Dashboard</a>
+                            <span>/</span>
+                            <span>Fee Structure</span>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-menu-toggle">
+                            <img src="../../assets/images/student-avatar.jpg" alt="Student" class="user-avatar-small" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4YjVjZjYiLz48L3N2Zz4='">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <div class="user-menu-header">
+                                <div class="user-name">John Smith</div>
+                                <div class="user-email">john.smith@student.college.edu</div>
+                            </div>
+                            <div class="user-menu-items">
+                                <a href="#" class="user-menu-item logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Fee Overview -->
+            <div class="fee-overview">
+                <div class="overview-cards">
+                    <div class="overview-card total-fee">
+                        <div class="card-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Annual Fee</h3>
+                            <div class="fee-amount">₹1,85,000</div>
+                            <p class="fee-info">Academic Year 2024-25</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card paid-fee">
+                        <div class="card-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Amount Paid</h3>
+                            <div class="fee-amount">₹95,000</div>
+                            <p class="fee-info">51.4% Completed</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card pending-fee">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Amount Pending</h3>
+                            <div class="fee-amount">₹90,000</div>
+                            <p class="fee-info">Due: March 15, 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-card next-installment">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Next Installment</h3>
+                            <div class="fee-amount">₹45,000</div>
+                            <p class="fee-info">Due: Jan 15, 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="card mb-6">
+                <div class="card-header">
+                    <h3 class="card-title">View Fee Structure</h3>
+                    <div class="filter-controls">
+                        <select class="form-select" id="academicYear" onchange="loadFeeStructure()">
+                            <option value="2024-25" selected>Academic Year 2024-25</option>
+                            <option value="2023-24">Academic Year 2023-24</option>
+                            <option value="2022-23">Academic Year 2022-23</option>
+                        </select>
+                        <select class="form-select" id="semester" onchange="loadFeeStructure()">
+                            <option value="all" selected>All Semesters</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="fee-breakdown-tabs">
+                        <button class="fee-tab active" onclick="showFeeBreakdown('semester')" data-tab="semester">
+                            Semester-wise
+                        </button>
+                        <button class="fee-tab" onclick="showFeeBreakdown('category')" data-tab="category">
+                            Category-wise
+                        </button>
+                        <button class="fee-tab" onclick="showFeeBreakdown('installment')" data-tab="installment">
+                            Installment-wise
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fee Structure Display -->
+            <div class="fee-structure-container">
+                <!-- Semester-wise View -->
+                <div class="fee-breakdown active" id="semester-breakdown">
+                    <div class="semester-fee-cards">
+                        <div class="semester-card">
+                            <div class="semester-header">
+                                <h3>Semester 1</h3>
+                                <div class="semester-total">₹95,000</div>
+                            </div>
+                            <div class="semester-details">
+                                <div class="fee-item">
+                                    <span class="fee-label">Tuition Fee</span>
+                                    <span class="fee-value">₹65,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Development Fee</span>
+                                    <span class="fee-value">₹15,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Library Fee</span>
+                                    <span class="fee-value">₹3,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Lab Fee</span>
+                                    <span class="fee-value">₹8,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Sports Fee</span>
+                                    <span class="fee-value">₹2,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Examination Fee</span>
+                                    <span class="fee-value">₹2,000</span>
+                                </div>
+                            </div>
+                            <div class="payment-status paid">
+                                <i class="fas fa-check-circle"></i>
+                                Paid on Dec 10, 2024
+                            </div>
+                        </div>
+
+                        <div class="semester-card">
+                            <div class="semester-header">
+                                <h3>Semester 2</h3>
+                                <div class="semester-total">₹90,000</div>
+                            </div>
+                            <div class="semester-details">
+                                <div class="fee-item">
+                                    <span class="fee-label">Tuition Fee</span>
+                                    <span class="fee-value">₹65,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Development Fee</span>
+                                    <span class="fee-value">₹10,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Library Fee</span>
+                                    <span class="fee-value">₹3,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Lab Fee</span>
+                                    <span class="fee-value">₹8,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Sports Fee</span>
+                                    <span class="fee-value">₹2,000</span>
+                                </div>
+                                <div class="fee-item">
+                                    <span class="fee-label">Examination Fee</span>
+                                    <span class="fee-value">₹2,000</span>
+                                </div>
+                            </div>
+                            <div class="payment-status pending">
+                                <i class="fas fa-clock"></i>
+                                Due: March 15, 2025
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category-wise View -->
+                <div class="fee-breakdown" id="category-breakdown">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="category-breakdown">
+                                <div class="category-item">
+                                    <div class="category-header">
+                                        <h4>Academic Fees</h4>
+                                        <span class="category-total">₹1,30,000</span>
+                                    </div>
+                                    <div class="category-details">
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Tuition Fee (Both Semesters)</span>
+                                            <span class="subcategory-value">₹1,30,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="category-item">
+                                    <div class="category-header">
+                                        <h4>Development & Infrastructure</h4>
+                                        <span class="category-total">₹25,000</span>
+                                    </div>
+                                    <div class="category-details">
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Development Fee (Sem 1)</span>
+                                            <span class="subcategory-value">₹15,000</span>
+                                        </div>
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Development Fee (Sem 2)</span>
+                                            <span class="subcategory-value">₹10,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="category-item">
+                                    <div class="category-header">
+                                        <h4>Laboratory & Practical</h4>
+                                        <span class="category-total">₹16,000</span>
+                                    </div>
+                                    <div class="category-details">
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Lab Fee (Both Semesters)</span>
+                                            <span class="subcategory-value">₹16,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="category-item">
+                                    <div class="category-header">
+                                        <h4>Library & Resources</h4>
+                                        <span class="category-total">₹6,000</span>
+                                    </div>
+                                    <div class="category-details">
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Library Fee (Both Semesters)</span>
+                                            <span class="subcategory-value">₹6,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="category-item">
+                                    <div class="category-header">
+                                        <h4>Extra-curricular & Sports</h4>
+                                        <span class="category-total">₹4,000</span>
+                                    </div>
+                                    <div class="category-details">
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Sports Fee (Both Semesters)</span>
+                                            <span class="subcategory-value">₹4,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="category-item">
+                                    <div class="category-header">
+                                        <h4>Examination & Assessment</h4>
+                                        <span class="category-total">₹4,000</span>
+                                    </div>
+                                    <div class="category-details">
+                                        <div class="subcategory-item">
+                                            <span class="subcategory-label">Examination Fee (Both Semesters)</span>
+                                            <span class="subcategory-value">₹4,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installment-wise View -->
+                <div class="fee-breakdown" id="installment-breakdown">
+                    <div class="installment-timeline">
+                        <div class="installment-item completed">
+                            <div class="installment-marker">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="installment-content">
+                                <div class="installment-header">
+                                    <h4>First Installment</h4>
+                                    <span class="installment-amount">₹95,000</span>
+                                </div>
+                                <div class="installment-details">
+                                    <p>Semester 1 - Complete Fee</p>
+                                    <div class="installment-status paid">
+                                        <i class="fas fa-check-circle"></i>
+                                        Paid on Dec 10, 2024
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="installment-item active">
+                            <div class="installment-marker">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="installment-content">
+                                <div class="installment-header">
+                                    <h4>Second Installment</h4>
+                                    <span class="installment-amount">₹45,000</span>
+                                </div>
+                                <div class="installment-details">
+                                    <p>Semester 2 - 50% of fee</p>
+                                    <div class="installment-status due">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Due: Jan 15, 2025
+                                    </div>
+                                    <button class="btn btn-primary btn-sm mt-2" onclick="payInstallment(2)">
+                                        Pay Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="installment-item upcoming">
+                            <div class="installment-marker">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="installment-content">
+                                <div class="installment-header">
+                                    <h4>Final Installment</h4>
+                                    <span class="installment-amount">₹45,000</span>
+                                </div>
+                                <div class="installment-details">
+                                    <p>Semester 2 - Remaining 50%</p>
+                                    <div class="installment-status upcoming">
+                                        <i class="fas fa-clock"></i>
+                                        Due: March 15, 2025
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="additional-info">
+                <div class="info-cards">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-info-circle text-primary"></i>
+                                Important Information
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="info-list">
+                                <li>
+                                    <i class="fas fa-calendar-check text-success"></i>
+                                    Fee payment dates are strictly enforced. Late payments may incur additional charges.
+                                </li>
+                                <li>
+                                    <i class="fas fa-receipt text-primary"></i>
+                                    Official receipts will be generated for all payments and can be downloaded from your account.
+                                </li>
+                                <li>
+                                    <i class="fas fa-credit-card text-info"></i>
+                                    Multiple payment methods are accepted: Net Banking, Credit/Debit Cards, UPI, and DD.
+                                </li>
+                                <li>
+                                    <i class="fas fa-percentage text-warning"></i>
+                                    Late payment charges: 2% per month on the outstanding amount.
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone text-secondary"></i>
+                                    For any queries, contact the Accounts Department: +91-123-456-7890
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-gift text-success"></i>
+                                Scholarships & Discounts
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="scholarship-list">
+                                <div class="scholarship-item">
+                                    <div class="scholarship-info">
+                                        <h4>Merit Scholarship</h4>
+                                        <p>Available for students with CGPA > 8.5</p>
+                                    </div>
+                                    <div class="scholarship-benefit">
+                                        <span class="discount">20% Off</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="scholarship-item">
+                                    <div class="scholarship-info">
+                                        <h4>Early Payment Discount</h4>
+                                        <p>Pay full semester fee 30 days in advance</p>
+                                    </div>
+                                    <div class="scholarship-benefit">
+                                        <span class="discount">5% Off</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="scholarship-item">
+                                    <div class="scholarship-info">
+                                        <h4>Sibling Discount</h4>
+                                        <p>For students with siblings in the institution</p>
+                                    </div>
+                                    <div class="scholarship-benefit">
+                                        <span class="discount">10% Off</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-outline btn-sm mt-3" onclick="applyScholarship()">
+                                <i class="fas fa-hand-holding-heart"></i>
+                                Apply for Scholarship
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions-bar">
+                <button class="btn btn-primary" onclick="payFees()">
+                    <i class="fas fa-credit-card"></i>
+                    Pay Fees
+                </button>
+                <button class="btn btn-outline" onclick="downloadFeeStructure()">
+                    <i class="fas fa-download"></i>
+                    Download Structure
+                </button>
+                <button class="btn btn-outline" onclick="printFeeStructure()">
+                    <i class="fas fa-print"></i>
+                    Print
+                </button>
+                <button class="btn btn-secondary" onclick="contactAccounts()">
+                    <i class="fas fa-phone"></i>
+                    Contact Accounts
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/storage.js"></script>
+    <script src="../../assets/js/fake-data.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // User menu toggle
+            document.querySelector('.user-menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.user-menu-dropdown').classList.toggle('show');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown, .user-menu-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            });
+        }
+
+        // Show fee breakdown
+        function showFeeBreakdown(type) {
+            // Update tab active state
+            document.querySelectorAll('.fee-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-tab="${type}"]`).classList.add('active');
+
+            // Show corresponding breakdown
+            document.querySelectorAll('.fee-breakdown').forEach(breakdown => {
+                breakdown.classList.remove('active');
+            });
+            document.getElementById(`${type}-breakdown`).classList.add('active');
+        }
+
+        // Load fee structure
+        function loadFeeStructure() {
+            const year = document.getElementById('academicYear').value;
+            const semester = document.getElementById('semester').value;
+            
+            showNotification(`Loading fee structure for ${year}`, 'info');
+        }
+
+        // Pay installment
+        function payInstallment(installmentNumber) {
+            showNotification(`Redirecting to payment for installment ${installmentNumber}...`, 'info');
+            setTimeout(() => {
+                window.location.href = 'pay.html';
+            }, 1000);
+        }
+
+        // Action functions
+        function payFees() {
+            window.location.href = 'pay.html';
+        }
+
+        function downloadFeeStructure() {
+            showNotification('Downloading fee structure...', 'info');
+            setTimeout(() => {
+                showNotification('Fee structure downloaded successfully!', 'success');
+            }, 2000);
+        }
+
+        function printFeeStructure() {
+            const printContent = document.querySelector('.content-wrapper').innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <div style="padding: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="text-align: center; color: #6366f1;">ABC College of Engineering</h1>
+                    <h2 style="text-align: center;">Fee Structure - Academic Year 2024-25</h2>
+                    ${printContent}
+                </div>
+            `;
+            
+            window.print();
+            document.body.innerHTML = originalContent;
+            
+            // Reinitialize after content replacement
+            setupEventListeners();
+        }
+
+        function contactAccounts() {
+            showNotification('Opening contact information...', 'info');
+        }
+
+        function applyScholarship() {
+            showNotification('Opening scholarship application form...', 'info');
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+    </script>
+
+    <style>
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .fee-overview {
+            margin-bottom: 2rem;
+        }
+
+        .overview-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .overview-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .overview-card.total-fee {
+            border-left-color: var(--primary-color);
+        }
+
+        .overview-card.paid-fee {
+            border-left-color: var(--success-color);
+        }
+
+        .overview-card.pending-fee {
+            border-left-color: var(--warning-color);
+        }
+
+        .overview-card.next-installment {
+            border-left-color: var(--info-color);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .total-fee .card-icon {
+            background: var(--primary-color);
+        }
+
+        .paid-fee .card-icon {
+            background: var(--success-color);
+        }
+
+        .pending-fee .card-icon {
+            background: var(--warning-color);
+        }
+
+        .next-installment .card-icon {
+            background: var(--info-color);
+        }
+
+        .card-content h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .fee-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .fee-info {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .fee-breakdown-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .fee-tab {
+            padding: 0.75rem 1.5rem;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .fee-tab:hover {
+            border-color: var(--primary-color);
+            background: #f0f4ff;
+        }
+
+        .fee-tab.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .fee-structure-container {
+            margin-bottom: 2rem;
+        }
+
+        .fee-breakdown {
+            display: none;
+        }
+
+        .fee-breakdown.active {
+            display: block;
+        }
+
+        .semester-fee-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .semester-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .semester-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .semester-header h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .semester-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .semester-details {
+            padding: 1.5rem;
+        }
+
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .fee-item:last-child {
+            border-bottom: none;
+        }
+
+        .fee-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .fee-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .payment-status {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .payment-status.paid {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .payment-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .category-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .category-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .category-header h4 {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .category-total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .category-details {
+            padding: 1.5rem;
+        }
+
+        .subcategory-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .subcategory-item:last-child {
+            border-bottom: none;
+        }
+
+        .subcategory-label {
+            color: var(--text-secondary);
+        }
+
+        .subcategory-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .installment-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .installment-item {
+            display: flex;
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .installment-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 60px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #e2e8f0;
+        }
+
+        .installment-item.completed:after {
+            background: var(--success-color);
+        }
+
+        .installment-item.active:after {
+            background: linear-gradient(to bottom, var(--primary-color), #e2e8f0);
+        }
+
+        .installment-marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        .installment-item.completed .installment-marker {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .installment-item.active .installment-marker {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .installment-item.upcoming .installment-marker {
+            background: #f1f5f9;
+            color: var(--text-secondary);
+            border: 2px solid #e2e8f0;
+        }
+
+        .installment-content {
+            flex: 1;
+        }
+
+        .installment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .installment-header h4 {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .installment-amount {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .installment-details p {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .installment-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .installment-status.paid {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .installment-status.due {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .installment-status.upcoming {
+            background: #f1f5f9;
+            color: var(--text-secondary);
+        }
+
+        .additional-info {
+            margin-bottom: 2rem;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list i {
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+        }
+
+        .scholarship-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .scholarship-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .scholarship-info h4 {
+            margin: 0 0 0.25rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .scholarship-info p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .discount {
+            padding: 0.25rem 0.75rem;
+            background: var(--success-color);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .quick-actions-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notification-success {
+            background: var(--success-color);
+        }
+
+        .notification-error {
+            background: var(--danger-color);
+        }
+
+        .notification-info {
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .overview-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+            }
+            
+            .fee-breakdown-tabs {
+                flex-direction: column;
+            }
+            
+            .semester-fee-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-actions-bar {
+                flex-direction: column;
+            }
+            
+            .installment-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .installment-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</body>
+</html>

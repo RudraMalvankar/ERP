@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Fees - SmartERP</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="../student-dashboard.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="structure.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-list-alt"></i>
+                        Fee Structure
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="pay.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-credit-card"></i>
+                        Pay Fees
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="history.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-history"></i>
+                        Payment History
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="nav-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Pay Fees</h1>
+            </div>
+            <div class="nav-right">
+                <div class="user-menu">
+                    <div class="user-avatar-container">
+                        <img src="../../assets/images/student-avatar.jpg" alt="Student" class="user-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMzYjgyZjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI+CjxwYXRoIGQ9Ik0xMiAxMmM2LjYgMCAxMiA1LjQgMTIgMTJ2MGgtMjR2MGMwLTYuNiA1LjQtMTIgMTItMTJ6Ii8+CjxjaXJjbGUgY3g9IjEyIiBjeT0iOCIgcj0iNCIvPgo8L3N2Zz4='">
+                    </div>
+                    <span>John Smith</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Fee Summary -->
+            <div class="row mb-6">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-receipt text-primary mr-2"></i>
+                                Fee Summary
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="fee-summary">
+                                <div class="summary-row">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Total Fees for Semester</span>
+                                        <span class="summary-value">₹85,000</span>
+                                    </div>
+                                </div>
+                                <div class="summary-row">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Amount Paid</span>
+                                        <span class="summary-value text-success">₹45,000</span>
+                                    </div>
+                                </div>
+                                <div class="summary-row">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Pending Amount</span>
+                                        <span class="summary-value text-danger">₹40,000</span>
+                                    </div>
+                                </div>
+                                <div class="summary-row total-row">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Due Date</span>
+                                        <span class="summary-value text-warning">March 15, 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-info-circle text-info mr-2"></i>
+                                Payment Info
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-item mb-3">
+                                <strong>Student ID:</strong>
+                                <span>CS2024001</span>
+                            </div>
+                            <div class="info-item mb-3">
+                                <strong>Academic Year:</strong>
+                                <span>2024-25</span>
+                            </div>
+                            <div class="info-item mb-3">
+                                <strong>Semester:</strong>
+                                <span>Spring 2024</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Late Fee:</strong>
+                                <span class="text-warning">₹500 (after due date)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Options -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-credit-card text-primary mr-2"></i>
+                                Make Payment
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="paymentForm" class="payment-form">
+                                <!-- Payment Amount -->
+                                <div class="form-group mb-4">
+                                    <label for="paymentAmount" class="form-label">Payment Amount</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">₹</span>
+                                        <input type="number" id="paymentAmount" name="paymentAmount" class="form-input" 
+                                               value="40000" min="100" max="40000" required>
+                                    </div>
+                                    <small class="form-text">Minimum payment: ₹100 | Maximum payment: ₹40,000</small>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label">Payment Method</label>
+                                    <div class="payment-methods">
+                                        <div class="payment-method-option">
+                                            <input type="radio" id="card" name="paymentMethod" value="card" checked>
+                                            <label for="card" class="payment-method-label">
+                                                <i class="fas fa-credit-card"></i>
+                                                Credit/Debit Card
+                                            </label>
+                                        </div>
+                                        <div class="payment-method-option">
+                                            <input type="radio" id="netbanking" name="paymentMethod" value="netbanking">
+                                            <label for="netbanking" class="payment-method-label">
+                                                <i class="fas fa-university"></i>
+                                                Net Banking
+                                            </label>
+                                        </div>
+                                        <div class="payment-method-option">
+                                            <input type="radio" id="upi" name="paymentMethod" value="upi">
+                                            <label for="upi" class="payment-method-label">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                UPI
+                                            </label>
+                                        </div>
+                                        <div class="payment-method-option">
+                                            <input type="radio" id="wallet" name="paymentMethod" value="wallet">
+                                            <label for="wallet" class="payment-method-label">
+                                                <i class="fas fa-wallet"></i>
+                                                Digital Wallet
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Details (shown when card is selected) -->
+                                <div id="cardDetails" class="payment-details">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="cardNumber" class="form-label">Card Number</label>
+                                            <input type="text" id="cardNumber" name="cardNumber" class="form-input" 
+                                                   placeholder="1234 5678 9012 3456" maxlength="19">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                                            <input type="text" id="expiryDate" name="expiryDate" class="form-input" 
+                                                   placeholder="MM/YY" maxlength="5">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <input type="password" id="cvv" name="cvv" class="form-input" 
+                                                   placeholder="123" maxlength="4">
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="cardName" class="form-label">Name on Card</label>
+                                            <input type="text" id="cardName" name="cardName" class="form-input" 
+                                                   placeholder="JOHN SMITH">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- UPI Details (hidden by default) -->
+                                <div id="upiDetails" class="payment-details" style="display: none;">
+                                    <div class="form-group mb-3">
+                                        <label for="upiId" class="form-label">UPI ID</label>
+                                        <input type="text" id="upiId" name="upiId" class="form-input" 
+                                               placeholder="yourname@paytm">
+                                    </div>
+                                </div>
+
+                                <!-- Billing Address -->
+                                <div class="form-section mb-4">
+                                    <h4 class="form-section-title">Billing Address</h4>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="address" class="form-label">Street Address</label>
+                                            <input type="text" id="address" name="address" class="form-input" 
+                                                   placeholder="Enter your address">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="city" class="form-label">City</label>
+                                            <input type="text" id="city" name="city" class="form-input" 
+                                                   placeholder="Enter city">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="state" class="form-label">State</label>
+                                            <select id="state" name="state" class="form-input">
+                                                <option value="">Select State</option>
+                                                <option value="andhra-pradesh">Andhra Pradesh</option>
+                                                <option value="karnataka">Karnataka</option>
+                                                <option value="tamil-nadu">Tamil Nadu</option>
+                                                <option value="telangana">Telangana</option>
+                                                <option value="kerala">Kerala</option>
+                                                <option value="maharashtra">Maharashtra</option>
+                                                <option value="gujarat">Gujarat</option>
+                                                <option value="rajasthan">Rajasthan</option>
+                                                <option value="uttar-pradesh">Uttar Pradesh</option>
+                                                <option value="bihar">Bihar</option>
+                                                <option value="west-bengal">West Bengal</option>
+                                                <option value="odisha">Odisha</option>
+                                                <option value="punjab">Punjab</option>
+                                                <option value="haryana">Haryana</option>
+                                                <option value="himachal-pradesh">Himachal Pradesh</option>
+                                                <option value="uttarakhand">Uttarakhand</option>
+                                                <option value="jharkhand">Jharkhand</option>
+                                                <option value="chhattisgarh">Chhattisgarh</option>
+                                                <option value="assam">Assam</option>
+                                                <option value="goa">Goa</option>
+                                                <option value="delhi">Delhi</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pincode" class="form-label">PIN Code</label>
+                                            <input type="text" id="pincode" name="pincode" class="form-input" 
+                                                   placeholder="123456" maxlength="6">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Summary -->
+                                <div class="payment-summary mb-4">
+                                    <div class="summary-card">
+                                        <h4>Payment Summary</h4>
+                                        <div class="summary-line">
+                                            <span>Fee Amount:</span>
+                                            <span id="summaryAmount">₹40,000</span>
+                                        </div>
+                                        <div class="summary-line">
+                                            <span>Processing Fee:</span>
+                                            <span>₹20</span>
+                                        </div>
+                                        <div class="summary-line total">
+                                            <span>Total Amount:</span>
+                                            <span id="totalAmount">₹40,020</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Terms and Conditions -->
+                                <div class="form-group mb-4">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="terms" name="terms" required>
+                                        <label for="terms">
+                                            I agree to the <a href="#" class="text-primary">Terms and Conditions</a> 
+                                            and <a href="#" class="text-primary">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary mr-3" onclick="window.location.href='structure.html'">
+                                        <i class="fas fa-arrow-left mr-2"></i>
+                                        Back to Fee Structure
+                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-lock mr-2"></i>
+                                        Pay Securely
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Processing Modal -->
+    <div id="paymentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Processing Payment</h3>
+            </div>
+            <div class="modal-body text-center">
+                <div class="payment-processing">
+                    <i class="fas fa-spinner fa-spin fa-3x text-primary mb-3"></i>
+                    <p>Please wait while we process your payment...</p>
+                    <p class="text-muted">Do not close this window or press the back button.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Payment Successful</h3>
+            </div>
+            <div class="modal-body text-center">
+                <div class="success-animation">
+                    <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                    <h4>Payment Completed Successfully!</h4>
+                    <p>Transaction ID: <strong id="transactionId">TXN123456789</strong></p>
+                    <p>Amount Paid: <strong id="paidAmount">₹40,020</strong></p>
+                    <p>Receipt has been sent to your registered email address.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='history.html'">
+                    View Payment History
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeModal('successModal')">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/storage.js"></script>
+    <script src="../../assets/js/fake-data.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            initializePaymentForm();
+        });
+
+        function initializePaymentForm() {
+            const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+            const cardDetails = document.getElementById('cardDetails');
+            const upiDetails = document.getElementById('upiDetails');
+            const paymentAmountInput = document.getElementById('paymentAmount');
+            const summaryAmount = document.getElementById('summaryAmount');
+            const totalAmount = document.getElementById('totalAmount');
+
+            // Handle payment method changes
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    // Hide all payment details
+                    cardDetails.style.display = 'none';
+                    upiDetails.style.display = 'none';
+
+                    // Show relevant payment details
+                    if (this.value === 'card') {
+                        cardDetails.style.display = 'block';
+                    } else if (this.value === 'upi') {
+                        upiDetails.style.display = 'block';
+                    }
+                });
+            });
+
+            // Handle amount changes
+            paymentAmountInput.addEventListener('input', function() {
+                const amount = parseFloat(this.value) || 0;
+                const processingFee = 20;
+                const total = amount + processingFee;
+                
+                summaryAmount.textContent = `₹${amount.toLocaleString()}`;
+                totalAmount.textContent = `₹${total.toLocaleString()}`;
+            });
+
+            // Format card number input
+            const cardNumberInput = document.getElementById('cardNumber');
+            if (cardNumberInput) {
+                cardNumberInput.addEventListener('input', function() {
+                    let value = this.value.replace(/\D/g, '');
+                    value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+                    this.value = value;
+                });
+            }
+
+            // Format expiry date input
+            const expiryInput = document.getElementById('expiryDate');
+            if (expiryInput) {
+                expiryInput.addEventListener('input', function() {
+                    let value = this.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    }
+                    this.value = value;
+                });
+            }
+
+            // Handle form submission
+            document.getElementById('paymentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                processPayment();
+            });
+        }
+
+        function processPayment() {
+            const form = document.getElementById('paymentForm');
+            const formData = new FormData(form);
+            
+            // Validate form
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Show processing modal
+            showModal('paymentModal');
+
+            // Simulate payment processing
+            setTimeout(() => {
+                hideModal('paymentModal');
+                
+                // Generate transaction ID
+                const transactionId = 'TXN' + Date.now() + Math.floor(Math.random() * 1000);
+                const amount = document.getElementById('paymentAmount').value;
+                const total = (parseFloat(amount) + 20).toLocaleString();
+                
+                // Update success modal
+                document.getElementById('transactionId').textContent = transactionId;
+                document.getElementById('paidAmount').textContent = `₹${total}`;
+                
+                // Store payment record (for history)
+                const payments = JSON.parse(localStorage.getItem('feePayments') || '[]');
+                payments.unshift({
+                    id: transactionId,
+                    date: new Date().toISOString(),
+                    amount: parseFloat(amount),
+                    processingFee: 20,
+                    total: parseFloat(amount) + 20,
+                    method: formData.get('paymentMethod'),
+                    status: 'success',
+                    description: 'Semester Fee Payment'
+                });
+                localStorage.setItem('feePayments', JSON.stringify(payments));
+                
+                // Show success modal
+                showModal('successModal');
+            }, 3000);
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModal(modalId) {
+            hideModal(modalId);
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    hideModal(modal.id);
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .fee-summary {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-row.total-row {
+            border-top: 2px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .summary-label {
+            color: var(--text-secondary);
+        }
+
+        .summary-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .payment-method-option {
+            position: relative;
+        }
+
+        .payment-method-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .payment-method-label {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--surface-color);
+        }
+
+        .payment-method-label:hover {
+            border-color: var(--primary-color);
+            background: var(--hover-color);
+        }
+
+        .payment-method-option input[type="radio"]:checked + .payment-method-label {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .payment-method-label i {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .payment-details {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--surface-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-section-title {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .payment-summary {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .summary-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .summary-line.total {
+            border-top: 2px solid var(--border-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 0.2rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group-text {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-right: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px 0 0 8px;
+            color: var(--text-secondary);
+        }
+
+        .input-group .form-input {
+            border-radius: 0 8px 8px 0;
+            border-left: none;
+        }
+
+        .payment-processing {
+            padding: 2rem 0;
+        }
+
+        .success-animation {
+            padding: 2rem 0;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-item strong {
+            color: var(--text-primary);
+        }
+
+        .info-item span {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+            
+            .form-actions .btn {
+                width: 100%;
+                margin: 0.25rem 0;
+            }
+        }
+    </style>
+</body>
+</html>

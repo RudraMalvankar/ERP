@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History - SmartERP</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="../student-dashboard.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="structure.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-list-alt"></i>
+                        Fee Structure
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="pay.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-credit-card"></i>
+                        Pay Fees
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="history.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-history"></i>
+                        Payment History
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="nav-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Payment History</h1>
+            </div>
+            <div class="nav-right">
+                <div class="user-menu">
+                    <div class="user-avatar-container">
+                        <img src="../../assets/images/student-avatar.jpg" alt="Student" class="user-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMzYjgyZjYiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI+CjxwYXRoIGQ9Ik0xMiAxMmM2LjYgMCAxMiA1LjQgMTIgMTJ2MGgtMjR2MGMwLTYuNiA1LjQtMTIgMTItMTJ6Ii8+CjxjaXJjbGUgY3g9IjEyIiBjeT0iOCIgcj0iNCIvPgo8L3N2Zz4='">
+                    </div>
+                    <span>John Smith</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Payment Summary Cards -->
+            <div class="row mb-6">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-value">₹1,25,000</div>
+                            <div class="stat-label">Total Paid</div>
+                        </div>
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-value">₹40,000</div>
+                            <div class="stat-label">Pending Amount</div>
+                        </div>
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Total Transactions</div>
+                        </div>
+                        <div class="stat-icon bg-info">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-value">Mar 15</div>
+                            <div class="stat-label">Next Due Date</div>
+                        </div>
+                        <div class="stat-icon bg-danger">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="card mb-6">
+                <div class="card-body">
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <label for="dateRange" class="form-label">Date Range</label>
+                            <select id="dateRange" class="form-input">
+                                <option value="all">All Time</option>
+                                <option value="current-year">Current Academic Year</option>
+                                <option value="last-6-months">Last 6 Months</option>
+                                <option value="last-3-months">Last 3 Months</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="custom">Custom Range</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="paymentStatus" class="form-label">Status</label>
+                            <select id="paymentStatus" class="form-input">
+                                <option value="all">All Status</option>
+                                <option value="success">Successful</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                                <option value="refunded">Refunded</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="paymentMethod" class="form-label">Payment Method</label>
+                            <select id="paymentMethod" class="form-input">
+                                <option value="all">All Methods</option>
+                                <option value="card">Credit/Debit Card</option>
+                                <option value="netbanking">Net Banking</option>
+                                <option value="upi">UPI</option>
+                                <option value="wallet">Digital Wallet</option>
+                                <option value="cash">Cash</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="searchTxn" class="form-label">Search</label>
+                            <div class="search-input-group">
+                                <input type="text" id="searchTxn" class="form-input" placeholder="Transaction ID or Amount">
+                                <button class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment History Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-history text-primary mr-2"></i>
+                        Transaction History
+                    </h3>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="exportHistory()">
+                            <i class="fas fa-download mr-2"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" id="historyTable">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Payment Method</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div id="emptyState" class="empty-state" style="display: none;">
+                        <i class="fas fa-receipt fa-3x text-muted mb-3"></i>
+                        <h4>No Transactions Found</h4>
+                        <p class="text-muted">No payment transactions match your current filters.</p>
+                        <button class="btn btn-primary" onclick="clearFilters()">
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container mt-4">
+                <div class="pagination-info">
+                    Showing <span id="showingStart">1</span> to <span id="showingEnd">10</span> of <span id="totalRecords">42</span> transactions
+                </div>
+                <div class="pagination">
+                    <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-numbers" id="paginationNumbers">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                    <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transaction Details Modal -->
+    <div id="transactionModal" class="modal" style="display: none;">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3>Transaction Details</h3>
+                <button class="modal-close" onclick="closeModal('transactionModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="transactionDetails">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="downloadReceipt()">
+                    <i class="fas fa-download mr-2"></i>
+                    Download Receipt
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeModal('transactionModal')">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/storage.js"></script>
+    <script src="../../assets/js/fake-data.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <script>
+        let currentPage = 1;
+        let itemsPerPage = 10;
+        let filteredTransactions = [];
+        let allTransactions = [];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            loadTransactionHistory();
+            setupFilters();
+        });
+
+        function loadTransactionHistory() {
+            // Load from localStorage or generate sample data
+            const storedPayments = JSON.parse(localStorage.getItem('feePayments') || '[]');
+            
+            // Generate sample data if no payments exist
+            if (storedPayments.length === 0) {
+                allTransactions = generateSampleTransactions();
+                localStorage.setItem('feePayments', JSON.stringify(allTransactions));
+            } else {
+                allTransactions = storedPayments;
+                // Merge with sample data for demo
+                const sampleData = generateSampleTransactions();
+                allTransactions = [...storedPayments, ...sampleData].sort((a, b) => new Date(b.date) - new Date(a.date));
+            }
+
+            filteredTransactions = [...allTransactions];
+            displayTransactions();
+            updatePagination();
+        }
+
+        function generateSampleTransactions() {
+            const transactions = [];
+            const methods = ['card', 'netbanking', 'upi', 'wallet', 'cash'];
+            const statuses = ['success', 'success', 'success', 'success', 'pending', 'failed'];
+            const descriptions = [
+                'Tuition Fee - Semester 1',
+                'Tuition Fee - Semester 2', 
+                'Library Fee',
+                'Laboratory Fee',
+                'Examination Fee',
+                'Hostel Fee',
+                'Transportation Fee',
+                'Activity Fee',
+                'Late Fee Penalty',
+                'Refund - Overpayment'
+            ];
+
+            for (let i = 0; i < 35; i++) {
+                const date = new Date();
+                date.setDate(date.getDate() - Math.floor(Math.random() * 365));
+                
+                const amount = Math.floor(Math.random() * 50000) + 5000;
+                const processingFee = Math.floor(amount * 0.02);
+                
+                transactions.push({
+                    id: 'TXN' + Date.now() + Math.floor(Math.random() * 10000) + i,
+                    date: date.toISOString(),
+                    description: descriptions[Math.floor(Math.random() * descriptions.length)],
+                    method: methods[Math.floor(Math.random() * methods.length)],
+                    amount: amount,
+                    processingFee: processingFee,
+                    total: amount + processingFee,
+                    status: statuses[Math.floor(Math.random() * statuses.length)]
+                });
+            }
+
+            return transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+
+        function setupFilters() {
+            const filters = ['dateRange', 'paymentStatus', 'paymentMethod', 'searchTxn'];
+            
+            filters.forEach(filterId => {
+                const element = document.getElementById(filterId);
+                if (element) {
+                    element.addEventListener('change', applyFilters);
+                    if (filterId === 'searchTxn') {
+                        element.addEventListener('input', debounce(applyFilters, 300));
+                    }
+                }
+            });
+        }
+
+        function applyFilters() {
+            const dateRange = document.getElementById('dateRange').value;
+            const status = document.getElementById('paymentStatus').value;
+            const method = document.getElementById('paymentMethod').value;
+            const search = document.getElementById('searchTxn').value.toLowerCase();
+
+            filteredTransactions = allTransactions.filter(transaction => {
+                // Date filter
+                if (dateRange !== 'all') {
+                    const transactionDate = new Date(transaction.date);
+                    const now = new Date();
+                    
+                    switch (dateRange) {
+                        case 'current-year':
+                            if (transactionDate.getFullYear() !== now.getFullYear()) return false;
+                            break;
+                        case 'last-6-months':
+                            if (now - transactionDate > 6 * 30 * 24 * 60 * 60 * 1000) return false;
+                            break;
+                        case 'last-3-months':
+                            if (now - transactionDate > 3 * 30 * 24 * 60 * 60 * 1000) return false;
+                            break;
+                        case 'last-month':
+                            if (now - transactionDate > 30 * 24 * 60 * 60 * 1000) return false;
+                            break;
+                    }
+                }
+
+                // Status filter
+                if (status !== 'all' && transaction.status !== status) return false;
+
+                // Method filter
+                if (method !== 'all' && transaction.method !== method) return false;
+
+                // Search filter
+                if (search && !transaction.id.toLowerCase().includes(search) && 
+                    !transaction.total.toString().includes(search)) return false;
+
+                return true;
+            });
+
+            currentPage = 1;
+            displayTransactions();
+            updatePagination();
+        }
+
+        function displayTransactions() {
+            const tbody = document.getElementById('historyTableBody');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (filteredTransactions.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageTransactions = filteredTransactions.slice(startIndex, endIndex);
+
+            tbody.innerHTML = pageTransactions.map(transaction => `
+                <tr>
+                    <td>
+                        <div class="transaction-id">
+                            <strong>${transaction.id}</strong>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="transaction-date">
+                            ${formatDate(transaction.date)}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="transaction-description">
+                            ${transaction.description}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="payment-method-display">
+                            ${getMethodIcon(transaction.method)}
+                            ${formatMethod(transaction.method)}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="transaction-amount">
+                            <strong>₹${transaction.total.toLocaleString()}</strong>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="status-badge status-${transaction.status}">
+                            ${getStatusIcon(transaction.status)}
+                            ${formatStatus(transaction.status)}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="table-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="viewTransaction('${transaction.id}')" title="View Details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            ${transaction.status === 'success' ? `
+                                <button class="btn btn-sm btn-primary" onclick="downloadReceipt('${transaction.id}')" title="Download Receipt">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function getMethodIcon(method) {
+            const icons = {
+                'card': '<i class="fas fa-credit-card"></i>',
+                'netbanking': '<i class="fas fa-university"></i>',
+                'upi': '<i class="fas fa-mobile-alt"></i>',
+                'wallet': '<i class="fas fa-wallet"></i>',
+                'cash': '<i class="fas fa-money-bill"></i>'
+            };
+            return icons[method] || '<i class="fas fa-payment"></i>';
+        }
+
+        function formatMethod(method) {
+            const methods = {
+                'card': 'Credit/Debit Card',
+                'netbanking': 'Net Banking',
+                'upi': 'UPI',
+                'wallet': 'Digital Wallet',
+                'cash': 'Cash Payment'
+            };
+            return methods[method] || method;
+        }
+
+        function getStatusIcon(status) {
+            const icons = {
+                'success': '<i class="fas fa-check-circle"></i>',
+                'pending': '<i class="fas fa-clock"></i>',
+                'failed': '<i class="fas fa-times-circle"></i>',
+                'refunded': '<i class="fas fa-undo"></i>'
+            };
+            return icons[status] || '';
+        }
+
+        function formatStatus(status) {
+            return status.charAt(0).toUpperCase() + status.slice(1);
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage);
+            const startRecord = (currentPage - 1) * itemsPerPage + 1;
+            const endRecord = Math.min(currentPage * itemsPerPage, filteredTransactions.length);
+
+            document.getElementById('showingStart').textContent = startRecord;
+            document.getElementById('showingEnd').textContent = endRecord;
+            document.getElementById('totalRecords').textContent = filteredTransactions.length;
+
+            // Update pagination buttons
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+
+            // Update page numbers
+            const paginationNumbers = document.getElementById('paginationNumbers');
+            let numbersHTML = '';
+            
+            for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
+                numbersHTML += `
+                    <button class="pagination-number ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+            
+            paginationNumbers.innerHTML = numbersHTML;
+        }
+
+        function changePage(direction) {
+            const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage);
+            const newPage = currentPage + direction;
+            
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                displayTransactions();
+                updatePagination();
+            }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            displayTransactions();
+            updatePagination();
+        }
+
+        function viewTransaction(transactionId) {
+            const transaction = allTransactions.find(t => t.id === transactionId);
+            if (!transaction) return;
+
+            const detailsHTML = `
+                <div class="transaction-details-grid">
+                    <div class="detail-section">
+                        <h4>Transaction Information</h4>
+                        <div class="detail-row">
+                            <span class="detail-label">Transaction ID:</span>
+                            <span class="detail-value">${transaction.id}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date & Time:</span>
+                            <span class="detail-value">${formatDate(transaction.date)}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-value">
+                                <span class="status-badge status-${transaction.status}">
+                                    ${getStatusIcon(transaction.status)} ${formatStatus(transaction.status)}
+                                </span>
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Description:</span>
+                            <span class="detail-value">${transaction.description}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Payment Details</h4>
+                        <div class="detail-row">
+                            <span class="detail-label">Payment Method:</span>
+                            <span class="detail-value">
+                                ${getMethodIcon(transaction.method)} ${formatMethod(transaction.method)}
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Amount:</span>
+                            <span class="detail-value">₹${transaction.amount.toLocaleString()}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Processing Fee:</span>
+                            <span class="detail-value">₹${transaction.processingFee.toLocaleString()}</span>
+                        </div>
+                        <div class="detail-row total-row">
+                            <span class="detail-label">Total Amount:</span>
+                            <span class="detail-value">₹${transaction.total.toLocaleString()}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('transactionDetails').innerHTML = detailsHTML;
+            showModal('transactionModal');
+        }
+
+        function downloadReceipt(transactionId) {
+            // In a real application, this would generate and download a PDF receipt
+            alert(`Receipt for transaction ${transactionId} would be downloaded.`);
+        }
+
+        function exportHistory() {
+            // In a real application, this would export the transaction history
+            alert('Transaction history would be exported as CSV/PDF.');
+        }
+
+        function clearFilters() {
+            document.getElementById('dateRange').value = 'all';
+            document.getElementById('paymentStatus').value = 'all';
+            document.getElementById('paymentMethod').value = 'all';
+            document.getElementById('searchTxn').value = '';
+            applyFilters();
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .filters-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-group .form-input {
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+        }
+
+        .search-btn {
+            background: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+            border-left: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .transaction-id {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .payment-method-display {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+
+        .status-pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+
+        .status-failed {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+
+        .status-refunded {
+            background: var(--info-light);
+            color: var(--info-color);
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .pagination {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .pagination-btn, .pagination-number {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pagination-btn:hover:not(:disabled), .pagination-number:hover {
+            background: var(--hover-color);
+            border-color: var(--primary-color);
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-number.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .pagination-numbers {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .transaction-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .detail-section h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row.total-row {
+            border-top: 2px solid var(--border-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            font-weight: 600;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .transaction-details-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pagination-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .table-responsive {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</body>
+</html>
