@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartERP - College Management System</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container flex justify-between items-center">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary mr-2"></i>
+                SmartERP
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <ul class="navbar-nav hide-mobile">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="flex items-center gap-4">
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                    <button class="mobile-menu-btn show-mobile">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu">
+            <ul class="navbar-nav">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <div class="hero-text fade-in">
+                    <h1 class="hero-title">
+                        Modern College Management
+                        <span class="text-primary">Made Simple</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Streamline your educational institution with our comprehensive ERP solution. 
+                        Manage students, staff, courses, and operations all in one place.
+                    </p>
+                    <div class="hero-actions mt-8">
+                        <a href="login.html" class="btn btn-primary btn-lg mr-4">Get Started</a>
+                        <a href="#features" class="btn btn-secondary btn-lg">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image mt-8 fade-in">
+                    <div class="hero-dashboard-preview">
+                        <div class="dashboard-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="mockup-sidebar">
+                                    <div class="sidebar-item active"></div>
+                                    <div class="sidebar-item"></div>
+                                    <div class="sidebar-item"></div>
+                                    <div class="sidebar-item"></div>
+                                </div>
+                                <div class="mockup-main">
+                                    <div class="mockup-stats">
+                                        <div class="stat-card"></div>
+                                        <div class="stat-card"></div>
+                                        <div class="stat-card"></div>
+                                        <div class="stat-card"></div>
+                                    </div>
+                                    <div class="mockup-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header text-center mb-8">
+                <h2>Comprehensive Features</h2>
+                <p>Everything you need to manage your educational institution efficiently</p>
+            </div>
+            
+            <div class="features-grid grid grid-cols-3 gap-6">
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student Management</h3>
+                    <p>Complete student lifecycle management from admission to graduation. Track academic progress, attendance, and performance.</p>
+                    <ul class="feature-list">
+                        <li>Student profiles and records</li>
+                        <li>Academic progress tracking</li>
+                        <li>Attendance management</li>
+                        <li>Grade and transcript generation</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Staff & Faculty</h3>
+                    <p>Efficient staff management with role-based access, payroll integration, and performance tracking.</p>
+                    <ul class="feature-list">
+                        <li>Employee profiles and HR</li>
+                        <li>Role-based permissions</li>
+                        <li>Payroll management</li>
+                        <li>Performance evaluation</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Academic Management</h3>
+                    <p>Comprehensive course and curriculum management with scheduling and resource allocation.</p>
+                    <ul class="feature-list">
+                        <li>Course and curriculum design</li>
+                        <li>Class scheduling</li>
+                        <li>Resource allocation</li>
+                        <li>Exam management</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Financial Management</h3>
+                    <p>Complete fee management system with online payments, receipts, and financial reporting.</p>
+                    <ul class="feature-list">
+                        <li>Fee structure management</li>
+                        <li>Online payment gateway</li>
+                        <li>Receipt generation</li>
+                        <li>Financial reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Hostel Management</h3>
+                    <p>Streamlined hostel operations with room allocation, maintenance, and resident management.</p>
+                    <ul class="feature-list">
+                        <li>Room allocation system</li>
+                        <li>Resident management</li>
+                        <li>Maintenance tracking</li>
+                        <li>Hostel fee management</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Library System</h3>
+                    <p>Digital library management with cataloging, issue tracking, and inventory management.</p>
+                    <ul class="feature-list">
+                        <li>Digital catalog system</li>
+                        <li>Book issue and return</li>
+                        <li>Inventory management</li>
+                        <li>Fine and penalty tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section bg-primary text-white">
+        <div class="container">
+            <div class="stats-grid grid grid-cols-4 gap-6">
+                <div class="stat-item text-center">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Institutions</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="stat-number">5K+</div>
+                    <div class="stat-label">Faculty</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="grid grid-cols-2 gap-6 items-center">
+                <div class="about-content">
+                    <h2>Why Choose SmartERP?</h2>
+                    <p>Our comprehensive ERP solution is designed specifically for educational institutions, providing all the tools you need to manage your college or university efficiently.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Secure & Reliable</h4>
+                                <p>Enterprise-grade security with regular backups and 99.9% uptime guarantee.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Mobile Responsive</h4>
+                                <p>Access your ERP system from anywhere, on any device with our responsive design.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <h4>Customizable</h4>
+                                <p>Tailor the system to your institution's specific needs with flexible configuration options.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div>
+                                <h4>24/7 Support</h4>
+                                <p>Get help when you need it with our dedicated support team available round the clock.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="about-visual">
+                        <div class="visual-element">
+                            <i class="fas fa-users"></i>
+                            <span>Student Management</span>
+                        </div>
+                        <div class="visual-element">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics & Reports</span>
+                        </div>
+                        <div class="visual-element">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Scheduling</span>
+                        </div>
+                        <div class="visual-element">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Financial Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section bg-secondary text-white">
+        <div class="container text-center">
+            <h2>Ready to Transform Your Institution?</h2>
+            <p>Join hundreds of educational institutions that trust SmartERP for their management needs.</p>
+            <div class="cta-actions mt-6">
+                <a href="login.html" class="btn btn-primary btn-lg mr-4">Start Free Trial</a>
+                <a href="#contact" class="btn btn-secondary btn-lg">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header text-center mb-8">
+                <h2>Get in Touch</h2>
+                <p>Have questions? We'd love to hear from you.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-6">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address</strong>
+                            <p>123 Education Street, Academic City, AC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>info@smarterp.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Business Hours</strong>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form card">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <div class="footer-content grid grid-cols-4 gap-6">
+                <div class="footer-section">
+                    <div class="footer-brand mb-4">
+                        <i class="fas fa-graduation-cap text-primary mr-2"></i>
+                        SmartERP
+                    </div>
+                    <p>Transforming educational institutions with modern, efficient, and user-friendly ERP solutions.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Student Management</a></li>
+                        <li><a href="#">Staff Management</a></li>
+                        <li><a href="#">Academic Management</a></li>
+                        <li><a href="#">Financial Management</a></li>
+                        <li><a href="#">Reports & Analytics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Best Practices</a></li>
+                        <li><a href="#">Support Center</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="flex justify-between items-center">
+                    <p>&copy; 2024 SmartERP. All rights reserved.</p>
+                    <p>Made with <i class="fas fa-heart text-danger"></i> for Education</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/fake-data.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Contact form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success mt-4';
+            alert.innerHTML = '<strong>Success!</strong> Your message has been sent. We\'ll get back to you soon.';
+            
+            this.appendChild(alert);
+            this.reset();
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        });
+    </script>
+
+    <style>
+        /* Additional styles for homepage */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dashboard-mockup {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mockup-header {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mockup-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e0;
+        }
+
+        .mockup-dots span:first-child { background: #ef4444; }
+        .mockup-dots span:nth-child(2) { background: #f59e0b; }
+        .mockup-dots span:nth-child(3) { background: #10b981; }
+
+        .mockup-content {
+            display: flex;
+            height: 300px;
+        }
+
+        .mockup-sidebar {
+            width: 200px;
+            background: #1e293b;
+            padding: 20px;
+        }
+
+        .sidebar-item {
+            height: 40px;
+            background: #334155;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-item.active {
+            background: var(--primary-color);
+        }
+
+        .mockup-main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .mockup-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            height: 80px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .mockup-chart {
+            height: 120px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 8px;
+            opacity: 0.1;
+        }
+
+        .features-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li:before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .stats-section {
+            padding: 60px 0;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-features {
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-icon-small {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .about-visual {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .visual-element {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .visual-element i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background: var(--bg-dark);
+        }
+
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-info {
+            padding-right: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .footer {
+            padding: 60px 0 20px;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid,
+            .stats-grid,
+            .about-section .grid,
+            .contact-section .grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mockup-content {
+                height: 200px;
+            }
+            
+            .mockup-sidebar {
+                width: 120px;
+            }
+        }
+    </style>
+</body>
+</html>

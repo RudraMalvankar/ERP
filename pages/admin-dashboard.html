@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SmartERP</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+            <div class="user-info mt-4">
+                <div class="user-avatar-container">
+                    <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2MzY2ZjEiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0yMCAyMkM3LjMgMjIgMjAuNSAzNSAyMCAzNSIgZmlsbD0iI2ZmZmZmZiIvPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjE2IiByPSI2IiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPgo8L3N2Zz4='">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="admin-dashboard.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="admissions/applications.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-user-plus"></i>
+                        Admissions
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-users"></i>
+                        Students
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-chalkboard-teacher"></i>
+                        Staff & Faculty
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-book"></i>
+                        Courses
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="exams/upload-results.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-clipboard-list"></i>
+                        Examinations
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="fees/admin-fees.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-dollar-sign"></i>
+                        Fee Management
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="library/manage.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-book-reader"></i>
+                        Library
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="hostel/manage.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-building"></i>
+                        Hostel Management
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-chart-line"></i>
+                        Reports & Analytics
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-cog"></i>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Admin Dashboard</h1>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- Search -->
+                    <div class="search-container">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="search-input" placeholder="Search students, staff, courses..." data-search-type="all">
+                        </div>
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                    
+                    <!-- Notifications -->
+                    <div class="notification-container">
+                        <button class="notification-bell">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <a href="#" class="mark-all-read">Mark all as read</a>
+                            </div>
+                            <div class="notification-list">
+                                <!-- Notifications will be loaded by JavaScript -->
+                            </div>
+                            <div class="notification-footer">
+                                <a href="#" class="view-all">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-menu-toggle">
+                            <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar-small" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM2MzY2ZjEiLz4KPHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0xNiAxOEM1Ljg0IDE4IDE2LjQgMjggMTYgMjgiIGZpbGw9IiNmZmZmZmYiLz4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxMyIgcj0iNSIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4KPC9zdmc+'">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <div class="user-menu-header">
+                                <div class="user-name">Admin User</div>
+                                <div class="user-email">admin@college.edu</div>
+                            </div>
+                            <div class="user-menu-items">
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-user"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-cog"></i>
+                                    Settings
+                                </a>
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-question-circle"></i>
+                                    Help
+                                </a>
+                                <hr>
+                                <a href="#" class="user-menu-item logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon bg-primary">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="totalStudents">1,247</div>
+                        <div class="stat-label">Total Students</div>
+                        <div class="stat-change positive">+12% from last month</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-success">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="totalStaff">124</div>
+                        <div class="stat-label">Staff & Faculty</div>
+                        <div class="stat-change positive">+3% from last month</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-warning">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="totalCourses">156</div>
+                        <div class="stat-label">Active Courses</div>
+                        <div class="stat-change positive">+8% from last month</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-danger">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="pendingAdmissions">45</div>
+                        <div class="stat-label">Pending Admissions</div>
+                        <div class="stat-change negative">-5% from last month</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <!-- Enrollment Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Student Enrollment Trend</h3>
+                        <div class="card-actions">
+                            <select class="form-select" style="width: auto;">
+                                <option>Last 6 months</option>
+                                <option>Last year</option>
+                                <option>Last 2 years</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="enrollmentChart" height="300"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Department Distribution -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Students by Department</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="departmentChart" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions & Recent Activity -->
+            <div class="grid grid-cols-3 gap-6 mt-6">
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="admissions/applications.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-primary">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Review Admissions</div>
+                                <div class="quick-action-subtitle">45 pending applications</div>
+                            </div>
+                        </a>
+                        
+                        <a href="fees/admin-fees.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-success">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Fee Management</div>
+                                <div class="quick-action-subtitle">View payment status</div>
+                            </div>
+                        </a>
+                        
+                        <a href="exams/upload-results.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-warning">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Exam Results</div>
+                                <div class="quick-action-subtitle">Upload & manage results</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="quick-action-item">
+                            <div class="quick-action-icon bg-danger">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Generate Reports</div>
+                                <div class="quick-action-subtitle">Academic & financial reports</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Activity</h3>
+                        <a href="#" class="card-link">View all</a>
+                    </div>
+                    <div class="recent-activity">
+                        <!-- Activity items will be loaded by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- System Status -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">System Status</h3>
+                    </div>
+                    <div class="system-status">
+                        <div class="status-item">
+                            <div class="status-indicator bg-success"></div>
+                            <div class="status-text">
+                                <div class="status-title">Server Status</div>
+                                <div class="status-subtitle">All systems operational</div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-item">
+                            <div class="status-indicator bg-success"></div>
+                            <div class="status-text">
+                                <div class="status-title">Database</div>
+                                <div class="status-subtitle">Connected and healthy</div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-item">
+                            <div class="status-indicator bg-warning"></div>
+                            <div class="status-text">
+                                <div class="status-title">Backup Status</div>
+                                <div class="status-subtitle">Last backup: 2 hours ago</div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-item">
+                            <div class="status-indicator bg-success"></div>
+                            <div class="status-text">
+                                <div class="status-title">Payment Gateway</div>
+                                <div class="status-subtitle">Processing normally</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Registrations & Announcements -->
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <!-- Recent Registrations -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Student Registrations</h3>
+                        <a href="#" class="card-link">View all students</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="table" id="recentStudentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Department</th>
+                                    <th>Registration Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Announcements -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Announcements</h3>
+                        <button class="btn btn-primary btn-sm" onclick="showAnnouncementModal()">
+                            <i class="fas fa-plus"></i>
+                            New Announcement
+                        </button>
+                    </div>
+                    <div class="announcements-list">
+                        <!-- Announcements will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Announcement Modal -->
+    <div id="announcementModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Create New Announcement</h3>
+                <button type="button" class="modal-close">&times;</button>
+            </div>
+            <form class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" placeholder="Enter announcement title" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" required>
+                            <option value="">Select category</option>
+                            <option value="academic">Academic</option>
+                            <option value="administrative">Administrative</option>
+                            <option value="events">Events</option>
+                            <option value="general">General</option>
+                        </select>
+                    </div>
+                    <div class="form-col">
+                        <label class="form-label">Priority</label>
+                        <select class="form-select" required>
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Audience</label>
+                    <select class="form-select" required>
+                        <option value="all">All Users</option>
+                        <option value="students">Students Only</option>
+                        <option value="staff">Staff Only</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Content</label>
+                    <textarea class="form-textarea" rows="6" placeholder="Enter announcement content" required></textarea>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="publishAnnouncement()">Publish Announcement</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/fake-data.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+            setupCharts();
+            setupEventListeners();
+        });
+
+        // Load dashboard data
+        function loadDashboardData() {
+            loadRecentStudents();
+            loadAnnouncements();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // User menu toggle
+            document.querySelector('.user-menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.user-menu-dropdown').classList.toggle('show');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown, .user-menu-dropdown, .notification-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            });
+        }
+
+        // Load recent students
+        function loadRecentStudents() {
+            const students = fakeData.getStudents().slice(0, 5);
+            const tbody = document.querySelector('#recentStudentsTable tbody');
+            
+            tbody.innerHTML = students.map(student => `
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <img src="${student.avatar}" alt="${student.fullName}" class="user-avatar-small" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM2MzY2ZjEiLz48L3N2Zz4='">
+                            <div>
+                                <div class="font-medium">${student.fullName}</div>
+                                <div class="text-sm text-secondary">${student.studentId}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${student.department}</td>
+                    <td>${new Date(student.enrollmentDate).toLocaleDateString()}</td>
+                    <td>
+                        <span class="badge badge-${student.status === 'Active' ? 'success' : 'warning'}">${student.status}</span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Load announcements
+        function loadAnnouncements() {
+            const announcements = fakeData.getAnnouncements().slice(0, 4);
+            const container = document.querySelector('.announcements-list');
+            
+            container.innerHTML = announcements.map(announcement => `
+                <div class="announcement-item">
+                    <div class="announcement-header">
+                        <h4 class="announcement-title">${announcement.title}</h4>
+                        <span class="badge badge-${announcement.priority === 'high' ? 'danger' : announcement.priority === 'medium' ? 'warning' : 'primary'}">${announcement.priority}</span>
+                    </div>
+                    <p class="announcement-content">${announcement.content.substring(0, 100)}...</p>
+                    <div class="announcement-meta">
+                        <span class="announcement-author">${announcement.author}</span>
+                        <span class="announcement-date">${new Date(announcement.publishDate).toLocaleDateString()}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Setup charts
+        function setupCharts() {
+            setupEnrollmentChart();
+            setupDepartmentChart();
+        }
+
+        // Setup enrollment chart
+        function setupEnrollmentChart() {
+            const ctx = document.getElementById('enrollmentChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'New Enrollments',
+                        data: [65, 72, 80, 85, 92, 98],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#f1f5f9'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Setup department chart
+        function setupDepartmentChart() {
+            const ctx = document.getElementById('departmentChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Computer Science', 'Engineering', 'Business', 'Arts', 'Sciences'],
+                    datasets: [{
+                        data: [35, 25, 20, 12, 8],
+                        backgroundColor: [
+                            '#3b82f6',
+                            '#10b981',
+                            '#f59e0b',
+                            '#ef4444',
+                            '#8b5cf6'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Show announcement modal
+        function showAnnouncementModal() {
+            document.getElementById('announcementModal').style.display = 'flex';
+        }
+
+        // Publish announcement
+        function publishAnnouncement() {
+            // Simulate publishing
+            alert('Announcement published successfully!');
+            closeModal();
+        }
+
+        // Close modal
+        function closeModal() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    </script>
+
+    <style>
+        /* Dashboard specific styles */
+        .top-nav {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input-group {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-input-group i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .search-input-group .search-input {
+            padding-left: 40px;
+            border-radius: 20px;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .notification-container {
+            position: relative;
+        }
+
+        .notification-bell {
+            position: relative;
+            background: none;
+            border: none;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .notification-bell:hover {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+        }
+
+        .notification-count {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .notification-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 320px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            display: none;
+        }
+
+        .notification-dropdown.show {
+            display: block;
+        }
+
+        .notification-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-header h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .mark-all-read {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .user-menu {
+            position: relative;
+        }
+
+        .user-menu-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            padding: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .user-menu-toggle:hover {
+            background: var(--bg-secondary);
+        }
+
+        .user-avatar-small {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-menu-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 200px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            display: none;
+        }
+
+        .user-menu-dropdown.show {
+            display: block;
+        }
+
+        .user-menu-header {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .user-menu-items {
+            padding: 8px 0;
+        }
+
+        .user-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .user-menu-item:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .user-info {
+            text-align: center;
+        }
+
+        .user-avatar-container {
+            margin-bottom: 8px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .user-role {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .stat-change {
+            font-size: 0.75rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quick-action-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .quick-action-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .quick-action-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .quick-action-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .quick-action-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .system-status {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .status-title {
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .status-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .announcement-item {
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .announcement-item:last-child {
+            border-bottom: none;
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .announcement-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .announcement-content {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .announcement-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .search-input-group {
+                width: 200px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

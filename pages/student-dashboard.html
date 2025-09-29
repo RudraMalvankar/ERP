@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - SmartERP</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+            <div class="user-info mt-4">
+                <div class="user-avatar-container">
+                    <img src="../assets/images/student-avatar.jpg" alt="Student" class="user-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4YjVjZjYiLz4KPHBhdGggZD0iTTIwIDIyQzcuMyAyMiAyMC41IDM1IDIwIDM1IiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMTYiIHI9IjYiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+'">
+                </div>
+                <div class="user-details">
+                    <div class="user-name">John Smith</div>
+                    <div class="user-role">Student ID: ST2024001</div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="student-dashboard.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-book-open"></i>
+                        My Courses
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-calendar-alt"></i>
+                        Class Schedule
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-file-alt"></i>
+                        Assignments
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="exams/hall-ticket.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-clipboard-list"></i>
+                        Examinations
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-chart-line"></i>
+                        Grades & Progress
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="fees/pay.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-credit-card"></i>
+                        Fee Payment
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="library/my-books.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-book"></i>
+                        Library
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="hostel/my-room.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-bed"></i>
+                        Hostel
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-comments"></i>
+                        Messages
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="#" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-user"></i>
+                        Profile
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">Welcome back, John!</h1>
+                        <p class="page-subtitle">Computer Science Engineering • Semester 6</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- Search -->
+                    <div class="search-container">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="search-input" placeholder="Search courses, assignments..." data-search-type="student">
+                        </div>
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="quick-actions-nav">
+                        <button class="quick-action-btn" title="Submit Assignment" onclick="showSubmissionModal()">
+                            <i class="fas fa-upload"></i>
+                        </button>
+                        <button class="quick-action-btn" title="View Grades" onclick="showGradesModal()">
+                            <i class="fas fa-chart-line"></i>
+                        </button>
+                        <button class="quick-action-btn" title="Library Books" onclick="window.location.href='library/my-books.html'">
+                            <i class="fas fa-book"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Notifications -->
+                    <div class="notification-container">
+                        <button class="notification-bell">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">4</span>
+                        </button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <a href="#" class="mark-all-read">Mark all as read</a>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Assignment Due Soon</div>
+                                        <div class="notification-text">CS301 Assignment 3 due tomorrow</div>
+                                        <div class="notification-time">1 hour ago</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Grade Published</div>
+                                        <div class="notification-text">CS101 Midterm result available</div>
+                                        <div class="notification-time">3 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Class Rescheduled</div>
+                                        <div class="notification-text">CS401 moved to 3:00 PM today</div>
+                                        <div class="notification-time">5 hours ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-footer">
+                                <a href="#" class="view-all">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-menu-toggle">
+                            <img src="../assets/images/student-avatar.jpg" alt="Student" class="user-avatar-small" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4YjVjZjYiLz48L3N2Zz4='">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <div class="user-menu-header">
+                                <div class="user-name">John Smith</div>
+                                <div class="user-email">student@college.edu</div>
+                            </div>
+                            <div class="user-menu-items">
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-user"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-cog"></i>
+                                    Settings
+                                </a>
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-question-circle"></i>
+                                    Help
+                                </a>
+                                <hr>
+                                <a href="#" class="user-menu-item logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon bg-primary">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="enrolledCourses">8</div>
+                        <div class="stat-label">Enrolled Courses</div>
+                        <div class="stat-change neutral">Current semester</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-success">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="currentGPA">3.8</div>
+                        <div class="stat-label">Current GPA</div>
+                        <div class="stat-change positive">+0.2 from last semester</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-warning">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="pendingAssignments">5</div>
+                        <div class="stat-label">Pending Assignments</div>
+                        <div class="stat-change negative">2 due this week</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-danger">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" data-stat="attendanceRate">92%</div>
+                        <div class="stat-label">Attendance Rate</div>
+                        <div class="stat-change positive">Above required 75%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today's Classes & Quick Actions -->
+            <div class="grid grid-cols-3 gap-6 mt-6">
+                <!-- Today's Classes -->
+                <div class="card span-2">
+                    <div class="card-header">
+                        <h3 class="card-title">Today's Classes</h3>
+                        <div class="current-time" id="currentTime">12:30 PM</div>
+                    </div>
+                    <div class="schedule-list">
+                        <div class="schedule-item completed">
+                            <div class="schedule-time">
+                                <div class="time">10:00 AM</div>
+                                <div class="duration">90 min</div>
+                            </div>
+                            <div class="schedule-content">
+                                <h4 class="class-title">CS101 - Introduction to Programming</h4>
+                                <div class="class-details">
+                                    <span class="class-instructor"><i class="fas fa-user"></i> Dr. Sarah Johnson</span>
+                                    <span class="class-room"><i class="fas fa-map-marker-alt"></i> Room 204</span>
+                                </div>
+                            </div>
+                            <div class="schedule-status">
+                                <span class="status-badge completed">Completed</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item current">
+                            <div class="schedule-time">
+                                <div class="time">2:00 PM</div>
+                                <div class="duration">60 min</div>
+                            </div>
+                            <div class="schedule-content">
+                                <h4 class="class-title">CS301 - Database Systems</h4>
+                                <div class="class-details">
+                                    <span class="class-instructor"><i class="fas fa-user"></i> Prof. Michael Davis</span>
+                                    <span class="class-room"><i class="fas fa-map-marker-alt"></i> Lab 105</span>
+                                </div>
+                            </div>
+                            <div class="schedule-status">
+                                <span class="status-badge current">In Progress</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item upcoming">
+                            <div class="schedule-time">
+                                <div class="time">4:00 PM</div>
+                                <div class="duration">90 min</div>
+                            </div>
+                            <div class="schedule-content">
+                                <h4 class="class-title">CS401 - Software Engineering</h4>
+                                <div class="class-details">
+                                    <span class="class-instructor"><i class="fas fa-user"></i> Dr. Emily Wilson</span>
+                                    <span class="class-room"><i class="fas fa-map-marker-alt"></i> Room 301</span>
+                                </div>
+                            </div>
+                            <div class="schedule-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="fees/pay.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-primary">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Pay Fees</div>
+                                <div class="quick-action-subtitle">₹12,500 pending</div>
+                            </div>
+                        </a>
+                        
+                        <a href="exams/hall-ticket.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-success">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Hall Ticket</div>
+                                <div class="quick-action-subtitle">Download for exams</div>
+                            </div>
+                        </a>
+                        
+                        <a href="library/my-books.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-warning">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Library Books</div>
+                                <div class="quick-action-subtitle">3 books issued</div>
+                            </div>
+                        </a>
+                        
+                        <a href="hostel/my-room.html" class="quick-action-item">
+                            <div class="quick-action-icon bg-danger">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <div class="quick-action-text">
+                                <div class="quick-action-title">Hostel Room</div>
+                                <div class="quick-action-subtitle">Room B-204</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Progress & Upcoming Deadlines -->
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <!-- Academic Progress Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Academic Progress</h3>
+                        <select class="form-select" style="width: auto;" onchange="updateProgressChart(this.value)">
+                            <option value="semester">This Semester</option>
+                            <option value="year">This Year</option>
+                            <option value="overall">Overall</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart" height="300"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Deadlines -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Upcoming Deadlines</h3>
+                        <a href="#" class="card-link">View all</a>
+                    </div>
+                    <div class="deadline-list">
+                        <div class="deadline-item critical">
+                            <div class="deadline-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="deadline-content">
+                                <div class="deadline-title">CS301 Assignment 3</div>
+                                <div class="deadline-course">Database Systems</div>
+                                <div class="deadline-date">Due: Tomorrow, 11:59 PM</div>
+                            </div>
+                            <div class="deadline-status critical">Urgent</div>
+                        </div>
+                        
+                        <div class="deadline-item warning">
+                            <div class="deadline-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="deadline-content">
+                                <div class="deadline-title">CS401 Project Proposal</div>
+                                <div class="deadline-course">Software Engineering</div>
+                                <div class="deadline-date">Due: Nov 27, 11:59 PM</div>
+                            </div>
+                            <div class="deadline-status warning">3 days</div>
+                        </div>
+                        
+                        <div class="deadline-item normal">
+                            <div class="deadline-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="deadline-content">
+                                <div class="deadline-title">CS201 Final Exam</div>
+                                <div class="deadline-course">Data Structures</div>
+                                <div class="deadline-date">Dec 2, 10:00 AM</div>
+                            </div>
+                            <div class="deadline-status normal">1 week</div>
+                        </div>
+                        
+                        <div class="deadline-item normal">
+                            <div class="deadline-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="deadline-content">
+                                <div class="deadline-title">Library Book Return</div>
+                                <div class="deadline-course">Advanced Algorithms</div>
+                                <div class="deadline-date">Due: Dec 5</div>
+                            </div>
+                            <div class="deadline-status normal">10 days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Grades & Course Overview -->
+            <div class="grid grid-cols-2 gap-6 mt-6">
+                <!-- Recent Grades -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Grades</h3>
+                        <a href="#" class="card-link" onclick="showGradesModal()">View all grades</a>
+                    </div>
+                    <div class="grades-list">
+                        <div class="grade-item">
+                            <div class="grade-course">
+                                <div class="course-code">CS101</div>
+                                <div class="course-name">Introduction to Programming</div>
+                            </div>
+                            <div class="grade-details">
+                                <div class="grade-assignment">Midterm Exam</div>
+                                <div class="grade-date">Nov 20, 2024</div>
+                            </div>
+                            <div class="grade-score excellent">A+</div>
+                        </div>
+                        
+                        <div class="grade-item">
+                            <div class="grade-course">
+                                <div class="course-code">CS201</div>
+                                <div class="course-name">Data Structures</div>
+                            </div>
+                            <div class="grade-details">
+                                <div class="grade-assignment">Assignment 2</div>
+                                <div class="grade-date">Nov 18, 2024</div>
+                            </div>
+                            <div class="grade-score good">B+</div>
+                        </div>
+                        
+                        <div class="grade-item">
+                            <div class="grade-course">
+                                <div class="course-code">CS301</div>
+                                <div class="course-name">Database Systems</div>
+                            </div>
+                            <div class="grade-details">
+                                <div class="grade-assignment">Quiz 2</div>
+                                <div class="grade-date">Nov 15, 2024</div>
+                            </div>
+                            <div class="grade-score excellent">A</div>
+                        </div>
+                        
+                        <div class="grade-item">
+                            <div class="grade-course">
+                                <div class="course-code">CS401</div>
+                                <div class="course-name">Software Engineering</div>
+                            </div>
+                            <div class="grade-details">
+                                <div class="grade-assignment">Lab Exercise 3</div>
+                                <div class="grade-date">Nov 12, 2024</div>
+                            </div>
+                            <div class="grade-score average">B</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Overview -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Course Overview</h3>
+                        <a href="#" class="card-link">View all courses</a>
+                    </div>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h4 class="course-title">CS101</h4>
+                                <div class="course-progress">85%</div>
+                            </div>
+                            <div class="course-name">Introduction to Programming</div>
+                            <div class="course-instructor">Dr. Sarah Johnson</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h4 class="course-title">CS201</h4>
+                                <div class="course-progress">78%</div>
+                            </div>
+                            <div class="course-name">Data Structures</div>
+                            <div class="course-instructor">Prof. Mark Thompson</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h4 class="course-title">CS301</h4>
+                                <div class="course-progress">92%</div>
+                            </div>
+                            <div class="course-name">Database Systems</div>
+                            <div class="course-instructor">Prof. Michael Davis</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h4 class="course-title">CS401</h4>
+                                <div class="course-progress">71%</div>
+                            </div>
+                            <div class="course-name">Software Engineering</div>
+                            <div class="course-instructor">Dr. Emily Wilson</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 71%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignment Submission Modal -->
+    <div id="submissionModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Submit Assignment</h3>
+                <button type="button" class="modal-close">&times;</button>
+            </div>
+            <form class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Course</label>
+                    <select class="form-select" required>
+                        <option value="">Select course</option>
+                        <option value="CS101">CS101 - Introduction to Programming</option>
+                        <option value="CS201">CS201 - Data Structures</option>
+                        <option value="CS301">CS301 - Database Systems</option>
+                        <option value="CS401">CS401 - Software Engineering</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Assignment</label>
+                    <select class="form-select" required>
+                        <option value="">Select assignment</option>
+                        <option value="assignment3">Assignment 3</option>
+                        <option value="project">Final Project</option>
+                        <option value="lab">Lab Exercise</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Upload File</label>
+                    <input type="file" class="form-input" accept=".pdf,.doc,.docx,.zip" required>
+                    <small class="form-text">Accepted formats: PDF, DOC, DOCX, ZIP (Max: 10MB)</small>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Comments (Optional)</label>
+                    <textarea class="form-textarea" rows="4" placeholder="Any additional comments..."></textarea>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="submitAssignment()">Submit Assignment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/fake-data.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCurrentTime();
+            loadDashboardData();
+            setupCharts();
+            setupEventListeners();
+            
+            // Update time every minute
+            setInterval(updateCurrentTime, 60000);
+        });
+
+        // Update current time
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            document.getElementById('currentTime').textContent = timeString;
+        }
+
+        // Load dashboard data
+        function loadDashboardData() {
+            // Update stats based on fake data
+            const stats = {
+                enrolledCourses: 8,
+                currentGPA: '3.8',
+                pendingAssignments: 5,
+                attendanceRate: '92%'
+            };
+            
+            Object.keys(stats).forEach(key => {
+                const element = document.querySelector(`[data-stat="${key}"]`);
+                if (element) {
+                    element.textContent = stats[key];
+                }
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // User menu toggle
+            document.querySelector('.user-menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.user-menu-dropdown').classList.toggle('show');
+            });
+
+            // Notification toggle
+            document.querySelector('.notification-bell').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.notification-dropdown').classList.toggle('show');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown, .user-menu-dropdown, .notification-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            });
+        }
+
+        // Setup charts
+        function setupCharts() {
+            setupProgressChart();
+        }
+
+        // Setup progress chart
+        function setupProgressChart() {
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            window.progressChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                    datasets: [{
+                        label: 'GPA',
+                        data: [3.5, 3.6, 3.7, 3.8, 3.7, 3.8],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#8b5cf6',
+                        pointBorderColor: '#8b5cf6',
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 3.0,
+                            max: 4.0,
+                            grid: {
+                                color: '#f1f5f9'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update progress chart
+        function updateProgressChart(period) {
+            let labels, data;
+            
+            switch(period) {
+                case 'semester':
+                    labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'];
+                    data = [3.5, 3.6, 3.7, 3.8, 3.7, 3.8];
+                    break;
+                case 'year':
+                    labels = ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'];
+                    data = [3.2, 3.4, 3.5, 3.6, 3.7, 3.8];
+                    break;
+                case 'overall':
+                    labels = ['Year 1', 'Year 2', 'Year 3'];
+                    data = [3.3, 3.6, 3.8];
+                    break;
+            }
+            
+            window.progressChart.data.labels = labels;
+            window.progressChart.data.datasets[0].data = data;
+            window.progressChart.update();
+        }
+
+        // Show modals
+        function showSubmissionModal() {
+            document.getElementById('submissionModal').style.display = 'flex';
+        }
+
+        function showGradesModal() {
+            alert('Grades modal would open here showing detailed grade history');
+        }
+
+        // Submit assignment
+        function submitAssignment() {
+            // Simulate submission
+            alert('Assignment submitted successfully!');
+            closeModal();
+        }
+
+        // Close modal
+        function closeModal() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    </script>
+
+    <style>
+        /* Student Dashboard Specific Styles */
+        .current-time {
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .schedule-item.completed {
+            opacity: 0.7;
+            background: rgba(16, 185, 129, 0.05);
+            border-color: #10b981;
+        }
+
+        .schedule-item.current {
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.05);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .schedule-item.upcoming {
+            border-color: #e2e8f0;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.completed {
+            background: #10b981;
+            color: white;
+        }
+
+        .status-badge.current {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .status-badge.upcoming {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+
+        .deadline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .deadline-item.critical {
+            border-color: var(--danger-color);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .deadline-item.warning {
+            border-color: var(--warning-color);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .deadline-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .deadline-content {
+            flex: 1;
+        }
+
+        .deadline-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .deadline-course {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .deadline-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .deadline-status {
+            flex-shrink: 0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .deadline-status.critical {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .deadline-status.warning {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .deadline-status.normal {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+
+        .grades-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .grade-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .grade-course {
+            flex: 1;
+        }
+
+        .course-code {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .course-name {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .grade-details {
+            text-align: right;
+            margin-right: 1rem;
+        }
+
+        .grade-assignment {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .grade-date {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .grade-score {
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .grade-score.excellent {
+            background: #10b981;
+            color: white;
+        }
+
+        .grade-score.good {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .grade-score.average {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .grade-score.poor {
+            background: #ef4444;
+            color: white;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .course-card {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .course-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .course-progress {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .course-name {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .course-instructor {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #f1f5f9;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .class-instructor {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .class-instructor i {
+            font-size: 0.8rem;
+        }
+
+        .form-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .grade-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .grade-details {
+                text-align: left;
+                margin-right: 0;
+            }
+            
+            .grade-score {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</body>
+</html>
