@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Application Status - SmartERP</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap text-primary"></i>
+                SmartERP
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="sidebar-nav-item">
+                    <a href="../student-dashboard.html" class="sidebar-nav-link">
+                        <i class="sidebar-nav-icon fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="my-application.html" class="sidebar-nav-link active">
+                        <i class="sidebar-nav-icon fas fa-file-alt"></i>
+                        My Application
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">My Application Status</h1>
+                        <nav class="breadcrumb">
+                            <a href="../student-dashboard.html">Dashboard</a>
+                            <span>/</span>
+                            <span>My Application</span>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-menu-toggle">
+                            <img src="../../assets/images/student-avatar.jpg" alt="Student" class="user-avatar-small" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4YjVjZjYiLz48L3N2Zz4='">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <div class="user-menu-header">
+                                <div class="user-name">John Smith</div>
+                                <div class="user-email">john.smith@student.college.edu</div>
+                            </div>
+                            <div class="user-menu-items">
+                                <a href="#" class="user-menu-item logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Application Status Overview -->
+            <div class="status-overview">
+                <div class="status-card">
+                    <div class="status-header">
+                        <div class="status-info">
+                            <h2>Application Status</h2>
+                            <p class="application-id">Application ID: <span id="applicationId">APP2024001</span></p>
+                            <p class="submission-date">Submitted on: <span id="submissionDate">November 20, 2024</span></p>
+                        </div>
+                        <div class="current-status">
+                            <div class="status-badge" id="currentStatus">
+                                <span class="badge badge-warning">Under Review</span>
+                            </div>
+                            <div class="progress-indicator">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="progress-text">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-actions">
+                        <button class="btn btn-primary" onclick="downloadApplication()">
+                            <i class="fas fa-download"></i>
+                            Download Application
+                        </button>
+                        <button class="btn btn-outline" onclick="printApplication()">
+                            <i class="fas fa-print"></i>
+                            Print Application
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Timeline -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Application Progress</h3>
+                    <div class="estimated-completion">
+                        <i class="fas fa-clock"></i>
+                        <span>Expected Decision: <strong>December 15, 2024</strong></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="progress-timeline">
+                        <div class="timeline-step completed">
+                            <div class="step-marker">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Application Submitted</h4>
+                                <p>Your application has been successfully submitted with all required documents.</p>
+                                <span class="step-date">November 20, 2024 • 10:30 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step completed">
+                            <div class="step-marker">
+                                <i class="fas fa-file-check"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Document Verification</h4>
+                                <p>All submitted documents have been verified by the admission office.</p>
+                                <span class="step-date">November 21, 2024 • 2:15 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step active">
+                            <div class="step-marker">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Under Review</h4>
+                                <p>Your application is currently being reviewed by the admission committee.</p>
+                                <span class="step-date">November 22, 2024 • 9:00 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step pending">
+                            <div class="step-marker">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Merit List Preparation</h4>
+                                <p>Your application will be evaluated for merit list placement.</p>
+                                <span class="step-date">Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step pending">
+                            <div class="step-marker">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Admission Decision</h4>
+                                <p>Final admission decision will be communicated via email and SMS.</p>
+                                <span class="step-date">Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step pending">
+                            <div class="step-marker">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Enrollment</h4>
+                                <p>Complete the enrollment process after admission confirmation.</p>
+                                <span class="step-date">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Details -->
+            <div class="details-grid">
+                <!-- Personal Information -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Personal Information</h3>
+                        <span class="verification-status verified">
+                            <i class="fas fa-check-circle"></i>
+                            Verified
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Full Name</span>
+                                <span class="info-value">John Michael Smith</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Date of Birth</span>
+                                <span class="info-value">January 15, 2000</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">john.smith@email.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">+91 98765 43210</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Address</span>
+                                <span class="info-value">123 Main Street, Sector 15, Gurgaon, Haryana - 122001</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Information -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Academic Information</h3>
+                        <span class="verification-status verified">
+                            <i class="fas fa-check-circle"></i>
+                            Verified
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Program</span>
+                                <span class="info-value">Computer Science Engineering</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">12th Percentage</span>
+                                <span class="info-value">92.5%</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">10th Percentage</span>
+                                <span class="info-value">95.2%</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">JEE Score</span>
+                                <span class="info-value">96.5 Percentile</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Merit Score</span>
+                                <span class="info-value merit-score">85/100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents Status -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Documents Status</h3>
+                    <div class="document-summary">
+                        <span class="doc-count verified">5 Verified</span>
+                        <span class="doc-count pending">1 Pending</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="documents-status">
+                        <div class="document-item verified">
+                            <div class="doc-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-info">
+                                <h4>10th Grade Certificate</h4>
+                                <p>10th_certificate.pdf</p>
+                            </div>
+                            <div class="doc-status">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+
+                        <div class="document-item verified">
+                            <div class="doc-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-info">
+                                <h4>12th Grade Certificate</h4>
+                                <p>12th_certificate.pdf</p>
+                            </div>
+                            <div class="doc-status">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+
+                        <div class="document-item verified">
+                            <div class="doc-icon">
+                                <i class="fas fa-file-image"></i>
+                            </div>
+                            <div class="doc-info">
+                                <h4>Passport Photo</h4>
+                                <p>photo.jpg</p>
+                            </div>
+                            <div class="doc-status">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+
+                        <div class="document-item verified">
+                            <div class="doc-icon">
+                                <i class="fas fa-file-image"></i>
+                            </div>
+                            <div class="doc-info">
+                                <h4>Signature</h4>
+                                <p>signature.jpg</p>
+                            </div>
+                            <div class="doc-status">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+
+                        <div class="document-item pending">
+                            <div class="doc-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-info">
+                                <h4>Income Certificate</h4>
+                                <p>income_certificate.pdf</p>
+                            </div>
+                            <div class="doc-status">
+                                <i class="fas fa-clock"></i>
+                                <span>Under Verification</span>
+                            </div>
+                        </div>
+
+                        <div class="document-item verified">
+                            <div class="doc-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-info">
+                                <h4>JEE Scorecard</h4>
+                                <p>jee_scorecard.pdf</p>
+                            </div>
+                            <div class="doc-status">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Information -->
+            <div class="card alert-card">
+                <div class="card-header">
+                    <h3 class="card-title">Important Information</h3>
+                    <i class="fas fa-info-circle text-primary"></i>
+                </div>
+                <div class="card-body">
+                    <div class="alert-list">
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-bell text-warning"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Merit List Publication</h4>
+                                <p>The first merit list will be published on <strong>December 10, 2024</strong>. Keep checking your email and our website for updates.</p>
+                            </div>
+                        </div>
+
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-calendar text-primary"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Counseling Schedule</h4>
+                                <p>If selected, counseling sessions will begin from <strong>December 15, 2024</strong>. Detailed schedule will be emailed to selected candidates.</p>
+                            </div>
+                        </div>
+
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-credit-card text-success"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Fee Payment</h4>
+                                <p>Upon admission confirmation, fee payment must be completed within <strong>7 days</strong> to secure your seat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Need Help?</h3>
+                </div>
+                <div class="card-body">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Admission Helpline</h4>
+                                <p>+91 1234 567 890</p>
+                                <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Email Support</h4>
+                                <p>admissions@college.edu</p>
+                                <span>Response within 24 hours</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Visit Us</h4>
+                                <p>Admission Office, Ground Floor</p>
+                                <span>Main Building, College Campus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/storage.js"></script>
+    <script src="../../assets/js/fake-data.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            loadApplicationStatus();
+            updateProgressIndicator();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // User menu toggle
+            document.querySelector('.user-menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.user-menu-dropdown').classList.toggle('show');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown, .user-menu-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            });
+        }
+
+        // Load application status (simulated)
+        function loadApplicationStatus() {
+            const applicationData = {
+                id: 'APP2024001',
+                submissionDate: 'November 20, 2024',
+                status: 'under_review',
+                progress: 60
+            };
+
+            document.getElementById('applicationId').textContent = applicationData.id;
+            document.getElementById('submissionDate').textContent = applicationData.submissionDate;
+            
+            updateStatusBadge(applicationData.status);
+            updateProgressBar(applicationData.progress);
+        }
+
+        // Update status badge
+        function updateStatusBadge(status) {
+            const statusBadge = document.getElementById('currentStatus');
+            const statusMap = {
+                'submitted': { class: 'info', text: 'Submitted' },
+                'under_review': { class: 'warning', text: 'Under Review' },
+                'approved': { class: 'success', text: 'Approved' },
+                'rejected': { class: 'danger', text: 'Rejected' },
+                'waitlisted': { class: 'secondary', text: 'Waitlisted' }
+            };
+
+            const statusInfo = statusMap[status] || statusMap['submitted'];
+            statusBadge.innerHTML = `<span class="badge badge-${statusInfo.class}">${statusInfo.text}</span>`;
+        }
+
+        // Update progress bar
+        function updateProgressBar(progress) {
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text');
+            
+            progressFill.style.width = progress + '%';
+            progressText.textContent = progress + '% Complete';
+        }
+
+        // Update progress indicator based on timeline
+        function updateProgressIndicator() {
+            const completedSteps = document.querySelectorAll('.timeline-step.completed').length;
+            const totalSteps = document.querySelectorAll('.timeline-step').length;
+            const progress = Math.round((completedSteps / totalSteps) * 100);
+            
+            updateProgressBar(progress);
+        }
+
+        // Download application
+        function downloadApplication() {
+            showNotification('Downloading your application...', 'info');
+            // In a real application, this would trigger file download
+            setTimeout(() => {
+                showNotification('Application downloaded successfully', 'success');
+            }, 2000);
+        }
+
+        // Print application
+        function printApplication() {
+            showNotification('Opening print dialog...', 'info');
+            window.print();
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+
+        // Auto-refresh status (simulated)
+        setInterval(() => {
+            // In a real application, this would fetch the latest status from server
+            // For demo purposes, we'll just show a subtle indication that data is being checked
+            const lastChecked = new Date().toLocaleTimeString();
+            console.log('Status checked at:', lastChecked);
+        }, 30000); // Check every 30 seconds
+    </script>
+
+    <style>
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .status-overview {
+            margin-bottom: 2rem;
+        }
+
+        .status-card {
+            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .status-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .application-id,
+        .submission-date {
+            margin: 0.25rem 0;
+            opacity: 0.9;
+        }
+
+        .current-status {
+            text-align: right;
+        }
+
+        .status-badge {
+            margin-bottom: 1rem;
+        }
+
+        .status-badge .badge {
+            font-size: 0.875rem;
+            padding: 8px 16px;
+        }
+
+        .progress-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .status-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .status-actions .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .status-actions .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .estimated-completion {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .progress-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .timeline-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #e2e8f0;
+        }
+
+        .timeline-step.completed:after {
+            background: var(--success-color);
+        }
+
+        .timeline-step.active:after {
+            background: linear-gradient(to bottom, var(--primary-color), #e2e8f0);
+        }
+
+        .step-marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        .timeline-step.completed .step-marker {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .timeline-step.active .step-marker {
+            background: var(--primary-color);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-step.pending .step-marker {
+            background: #f1f5f9;
+            color: var(--text-secondary);
+            border: 2px solid #e2e8f0;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        }
+
+        .step-content h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .step-content p {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .step-date {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .verification-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .verification-status.verified {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .verification-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .merit-score {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .document-summary {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .doc-count {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .doc-count.verified {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .doc-count.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .documents-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .document-item.verified {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .document-item.pending {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .doc-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-info h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .doc-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .doc-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .document-item.verified .doc-status {
+            color: #166534;
+        }
+
+        .document-item.pending .doc-status {
+            color: #92400e;
+        }
+
+        .alert-card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .alert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .alert-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .alert-content h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .alert-content p {
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            margin: 0 0 0.25rem 0;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .contact-info span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notification-success {
+            background: var(--success-color);
+        }
+
+        .notification-error {
+            background: var(--danger-color);
+        }
+
+        .notification-info {
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .status-header {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .current-status {
+                text-align: left;
+            }
+            
+            .progress-bar {
+                width: 100%;
+            }
+            
+            .status-actions {
+                flex-direction: column;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .documents-status {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
